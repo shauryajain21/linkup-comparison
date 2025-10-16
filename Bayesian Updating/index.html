@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ball Drawing Experiment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            width: 100%;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .screen {
+            display: none;
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        .instructions {
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .instructions h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .instructions ul {
+            margin-left: 25px;
+            margin-top: 10px;
+        }
+
+        .instructions li {
+            margin-bottom: 10px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: block;
+            margin: 20px auto;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .game-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .info-item {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .info-label {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            color: #333;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .jar-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .jar {
+            width: 200px;
+            height: 250px;
+            margin: 0 auto;
+            position: relative;
+            background: rgba(200, 200, 255, 0.3);
+            border: 3px solid #667eea;
+            border-radius: 10px 10px 30px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+        }
+
+        .drawn-ball {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 30px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: all 0.5s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .drawn-ball.black {
+            background: radial-gradient(circle at 30% 30%, #555, #000);
+            color: white;
+        }
+
+        .drawn-ball.white {
+            background: radial-gradient(circle at 30% 30%, #fff, #ddd);
+            color: #333;
+            border: 2px solid #999;
+        }
+
+        .history {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .history-label {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .ball-sequence {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .mini-ball {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7em;
+            font-weight: bold;
+        }
+
+        .mini-ball.black {
+            background: #333;
+            color: white;
+        }
+
+        .mini-ball.white {
+            background: white;
+            border: 2px solid #999;
+            color: #333;
+        }
+
+        .probability-input {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .probability-input label {
+            display: block;
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .slider-container {
+            margin: 20px auto;
+            max-width: 500px;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: linear-gradient(to right, white 0%, #333 100%);
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #667eea;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #667eea;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            border: none;
+        }
+
+        .probability-display {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+            margin: 15px 0;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .completion-screen {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .completion-screen h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .completion-screen p {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.2em;
+        }
+
+        .participant-id-input {
+            margin: 20px 0;
+        }
+
+        .participant-id-input label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .participant-id-input input {
+            padding: 12px;
+            font-size: 1.1em;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 300px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .bounce-in {
+            animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .jar-selection {
+            margin: 30px 0;
+        }
+
+        .jar-selection h2 {
+            text-align: center;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .jars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 15px;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .selectable-jar {
+            background: rgba(200, 200, 255, 0.2);
+            border: 3px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .selectable-jar:hover {
+            transform: translateY(-5px);
+            border-color: #667eea;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .selectable-jar.selected {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+            border-color: #667eea;
+            border-width: 4px;
+        }
+
+        .selectable-jar.disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .jar-emoji {
+            font-size: 2.5em;
+            margin-bottom: 5px;
+        }
+
+        .jar-label {
+            font-weight: bold;
+            color: #333;
+            font-size: 1em;
+        }
+
+        .selection-count {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 1.1em;
+            color: #667eea;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="screen active">
+            <h1>🎯 Ball Drawing Experiment</h1>
+            <p class="subtitle">A Study in Probability Estimation</p>
+
+            <div class="instructions">
+                <h2>Welcome!</h2>
+                <p>Thank you for participating in this experiment. You will be presented with a series of jars containing black and white balls.</p>
+
+                <h2>How it works:</h2>
+                <ul>
+                    <li><strong>11 different jars</strong> are available, each containing exactly 10 balls</li>
+                    <li>Each jar has a different (unknown) number of black balls (from 0 to 10)</li>
+                    <li>You will <strong>choose 1 jar</strong> to start with</li>
+                    <li>You'll draw <strong>20 balls</strong> from your chosen jar (one at a time)</li>
+                    <li>After 20 trials, you'll be <strong>randomly assigned a second jar</strong> for another 20 trials</li>
+                    <li>Finally, your <strong>original jar will return</strong> for a final 20 trials</li>
+                    <li>After each draw, you'll estimate the <strong>number of black balls in the jar</strong></li>
+                    <li>Each ball is returned to the jar after drawing (sampling with replacement)</li>
+                    <li>The total experiment takes about <strong>15-20 minutes</strong></li>
+                </ul>
+
+                <h2>Your task:</h2>
+                <p>After seeing each ball, use the slider to indicate your best estimate of how many black balls (0 to 10) are in the jar.</p>
+            </div>
+
+            <div class="participant-id-input">
+                <label for="participant-id">Participant ID:</label>
+                <input type="text" id="participant-id" placeholder="Enter your ID" />
+            </div>
+
+            <button onclick="goToJarSelection()">Continue</button>
+        </div>
+
+        <!-- Jar Selection Screen -->
+        <div id="jar-selection-screen" class="screen">
+            <h1>🎯 Select Your Jar</h1>
+            <p class="subtitle">Choose 1 jar to start with</p>
+
+            <div class="selection-count" id="selection-count">Click a jar to select it</div>
+
+            <div class="jar-selection">
+                <div class="jars-grid" id="jars-grid">
+                    <!-- Jars will be dynamically generated -->
+                </div>
+            </div>
+
+            <button id="start-experiment-btn" onclick="startExperiment()" disabled>Start Experiment</button>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen">
+            <h1>🎯 Ball Drawing Game</h1>
+
+            <div class="game-info">
+                <div class="info-item">
+                    <div class="info-label">Jar</div>
+                    <div class="info-value" id="jar-number">1</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Trial</div>
+                    <div class="info-value"><span id="trial-number">1</span>/20</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Total Progress</div>
+                    <div class="info-value"><span id="total-trials">0</span>/60</div>
+                </div>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill" style="width: 0%">
+                    <span id="progress-text">0%</span>
+                </div>
+            </div>
+
+            <div id="draw-section">
+                <div class="jar-container">
+                    <div class="jar">🏺</div>
+                </div>
+                <button onclick="drawBall()">Draw a Ball</button>
+            </div>
+
+            <div id="estimate-section" style="display: none;">
+                <div class="drawn-ball bounce-in" id="drawn-ball"></div>
+
+                <div class="history">
+                    <div class="history-label">Previous draws from this jar:</div>
+                    <div class="ball-sequence" id="ball-history"></div>
+                </div>
+
+                <div class="probability-input">
+                    <label for="probability-slider">
+                        How many BLACK balls are in this jar?
+                    </label>
+                    <div class="slider-container">
+                        <input type="range" id="probability-slider" min="0" max="10" value="5"
+                               oninput="updateProbabilityDisplay()">
+                        <div class="probability-display" id="probability-display">5</div>
+                    </div>
+                    <button onclick="submitEstimate()">Submit Estimate</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Completion Screen -->
+        <div id="completion-screen" class="screen">
+            <div class="completion-screen">
+                <h2>🎉 Experiment Complete!</h2>
+                <p>Thank you for participating in this study.</p>
+                <p>Your responses have been recorded.</p>
+                <button onclick="downloadData()">Download Your Data</button>
+                <button onclick="restartExperiment()" style="background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%);">
+                    Start New Session
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Experiment configuration
+        const CONFIG = {
+            jarsTotal: 11,
+            jarsPerExperiment: 3,  // Jar 1 (chosen), Jar 2 (random), Jar 1 (return)
+            trialsPerJar: 20,
+            jarRatios: [
+                [0, 10], [1, 9], [2, 8], [3, 7], [4, 6],
+                [5, 5], [6, 4], [7, 3], [8, 2], [9, 1], [10, 0]
+            ]
+        };
+
+        // Experiment state
+        let state = {
+            participantId: '',
+            selectedJars: [],
+            currentJarIndex: 0,
+            currentTrial: 0,
+            totalTrials: 0,
+            currentBallColor: null,
+            jarHistory: {},
+            allData: [],
+            startTime: null,
+            trialStartTime: null
+        };
+
+        function initializeExperiment() {
+            // Initialize history for each jar
+            state.selectedJars.forEach(jarId => {
+                state.jarHistory[jarId] = [];
+            });
+
+            state.startTime = new Date().toISOString();
+        }
+
+        function goToJarSelection() {
+            const participantId = document.getElementById('participant-id').value.trim();
+            if (!participantId) {
+                alert('Please enter a Participant ID');
+                return;
+            }
+
+            state.participantId = participantId;
+            state.selectedJars = [];
+
+            // Show jar selection screen
+            showScreen('jar-selection-screen');
+            renderJarSelection();
+        }
+
+        function renderJarSelection() {
+            const grid = document.getElementById('jars-grid');
+            grid.innerHTML = '';
+
+            for (let i = 0; i < CONFIG.jarsTotal; i++) {
+                const jarDiv = document.createElement('div');
+                jarDiv.className = 'selectable-jar';
+                jarDiv.setAttribute('data-jar-id', i);
+                jarDiv.innerHTML = `
+                    <div class="jar-emoji">🏺</div>
+                    <div class="jar-label">Jar ${i + 1}</div>
+                `;
+                jarDiv.onclick = () => selectJar(i);
+                grid.appendChild(jarDiv);
+            }
+        }
+
+        function selectJar(jarId) {
+            // Clear previous selection
+            document.querySelectorAll('.selectable-jar').forEach(jar => {
+                jar.classList.remove('selected');
+            });
+
+            // Select new jar
+            const jarDiv = document.querySelector(`[data-jar-id="${jarId}"]`);
+            jarDiv.classList.add('selected');
+
+            // Set up jar sequence: chosen jar, random jar, chosen jar again
+            const chosenJar = jarId;
+
+            // Pick a random jar (different from chosen)
+            const availableJars = [...Array(CONFIG.jarsTotal).keys()].filter(id => id !== chosenJar);
+            const randomJar = availableJars[Math.floor(Math.random() * availableJars.length)];
+
+            // Sequence: chosen, random, chosen (return)
+            state.selectedJars = [chosenJar, randomJar, chosenJar];
+
+            // Update UI
+            document.getElementById('selection-count').textContent =
+                `Selected: Jar ${chosenJar + 1}`;
+
+            // Enable start button
+            document.getElementById('start-experiment-btn').disabled = false;
+        }
+
+        function startExperiment() {
+            if (state.selectedJars.length !== CONFIG.jarsPerExperiment) {
+                alert('Please select a jar first.');
+                return;
+            }
+
+            initializeExperiment();
+            showScreen('game-screen');
+            updateGameInfo();
+        }
+
+        function getCurrentJarId() {
+            return state.selectedJars[state.currentJarIndex];
+        }
+
+        function getCurrentJarRatio() {
+            return CONFIG.jarRatios[getCurrentJarId()];
+        }
+
+        function drawBall() {
+            const ratio = getCurrentJarRatio();
+            const blackBalls = ratio[0];
+            const totalBalls = ratio[0] + ratio[1];
+
+            // Randomly draw based on ratio
+            const draw = Math.random();
+            const isBlack = draw < (blackBalls / totalBalls);
+
+            state.currentBallColor = isBlack ? 'black' : 'white';
+            state.trialStartTime = Date.now();
+
+            displayDrawnBall();
+            updateBallHistory();
+
+            document.getElementById('draw-section').style.display = 'none';
+            document.getElementById('estimate-section').style.display = 'block';
+        }
+
+        function displayDrawnBall() {
+            const ballElement = document.getElementById('drawn-ball');
+            ballElement.className = `drawn-ball bounce-in ${state.currentBallColor}`;
+            ballElement.textContent = state.currentBallColor === 'black' ? '⚫' : '⚪';
+        }
+
+        function updateBallHistory() {
+            const jarId = getCurrentJarId();
+            const history = state.jarHistory[jarId];
+
+            const historyContainer = document.getElementById('ball-history');
+            historyContainer.innerHTML = '';
+
+            history.forEach((color, index) => {
+                const ball = document.createElement('div');
+                ball.className = `mini-ball ${color}`;
+                ball.textContent = index + 1;
+                ball.title = `Draw ${index + 1}: ${color}`;
+                historyContainer.appendChild(ball);
+            });
+        }
+
+        function updateProbabilityDisplay() {
+            const slider = document.getElementById('probability-slider');
+            const display = document.getElementById('probability-display');
+            display.textContent = slider.value;
+        }
+
+        function submitEstimate() {
+            const probability = parseInt(document.getElementById('probability-slider').value);
+            const responseTime = Date.now() - state.trialStartTime;
+
+            // Record data
+            const jarId = getCurrentJarId();
+            const jarRatio = getCurrentJarRatio();
+
+            // Determine jar phase: 1 = first time (chosen), 2 = random jar, 3 = return to original
+            let jarPhase;
+            let jarType;
+            if (state.currentJarIndex === 0) {
+                jarPhase = 1;
+                jarType = 'chosen_first';
+            } else if (state.currentJarIndex === 1) {
+                jarPhase = 2;
+                jarType = 'random';
+            } else {
+                jarPhase = 3;
+                jarType = 'chosen_return';
+            }
+
+            state.allData.push({
+                participantId: state.participantId,
+                timestamp: new Date().toISOString(),
+                jarId: jarId,
+                jarRatioBlack: jarRatio[0],
+                jarRatioWhite: jarRatio[1],
+                jarPhase: jarPhase,
+                jarType: jarType,
+                trialInCurrentPhase: state.currentTrial + 1,
+                totalTrial: state.totalTrials + 1,
+                drawnColor: state.currentBallColor,
+                estimatedBlackBalls: probability,
+                responseTimeMs: responseTime,
+                previousDrawsThisPhase: state.currentTrial
+            });
+
+            // Update state
+            state.jarHistory[jarId].push(state.currentBallColor);
+            state.currentTrial++;
+            state.totalTrials++;
+
+            // Check if jar is complete
+            if (state.currentTrial >= CONFIG.trialsPerJar) {
+                state.currentTrial = 0;
+                state.currentJarIndex++;
+
+                if (state.currentJarIndex >= CONFIG.jarsPerExperiment) {
+                    // Experiment complete
+                    completeExperiment();
+                    return;
+                }
+            }
+
+            // Continue to next trial
+            resetForNextTrial();
+            updateGameInfo();
+        }
+
+        function resetForNextTrial() {
+            document.getElementById('estimate-section').style.display = 'none';
+            document.getElementById('draw-section').style.display = 'block';
+            document.getElementById('probability-slider').value = 5;
+            updateProbabilityDisplay();
+        }
+
+        function updateGameInfo() {
+            document.getElementById('jar-number').textContent = state.currentJarIndex + 1;
+            document.getElementById('trial-number').textContent = state.currentTrial + 1;
+            document.getElementById('total-trials').textContent = state.totalTrials;
+
+            const progress = (state.totalTrials / (CONFIG.jarsPerExperiment * CONFIG.trialsPerJar)) * 100;
+            document.getElementById('progress-fill').style.width = progress + '%';
+            document.getElementById('progress-text').textContent = Math.round(progress) + '%';
+
+            updateBallHistory();
+        }
+
+        function completeExperiment() {
+            showScreen('completion-screen');
+        }
+
+        function downloadData() {
+            // Convert to CSV
+            const headers = Object.keys(state.allData[0]);
+            const csvRows = [headers.join(',')];
+
+            state.allData.forEach(row => {
+                const values = headers.map(header => {
+                    const value = row[header];
+                    return typeof value === 'string' ? `"${value}"` : value;
+                });
+                csvRows.push(values.join(','));
+            });
+
+            const csvContent = csvRows.join('\n');
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `bayesian_experiment_${state.participantId}_${Date.now()}.csv`;
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+
+        function restartExperiment() {
+            state = {
+                participantId: '',
+                selectedJars: [],
+                currentJarIndex: 0,
+                currentTrial: 0,
+                totalTrials: 0,
+                currentBallColor: null,
+                jarHistory: {},
+                allData: [],
+                startTime: null,
+                trialStartTime: null
+            };
+            document.getElementById('participant-id').value = '';
+            showScreen('welcome-screen');
+        }
+
+        function showScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(screen => {
+                screen.classList.remove('active');
+            });
+            document.getElementById(screenId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
