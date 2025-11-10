@@ -1,0 +1,9 @@
+API,Wins,Win_Rate_%
+parallel_agentic,4,8.0
+parallel_oneshot,3,6.0
+linkup_standard,5,10.0
+you,15,30.0
+valyu,5,10.0
+perplexity,9,18.0
+linkup_deep,8,16.0
+tavily,1,2.0

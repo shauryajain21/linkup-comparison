@@ -1,0 +1,460 @@
+query,api_name,source_count,word_count,response_time,success,timestamp
+how many locations does optum have in california?,you,10,151,0.34995603561401367,True,1762781866.2923121
+how many locations does optum have in california?,tavily,9,33,0.35393285751342773,True,1762781866.296298
+how many locations does optum have in california?,parallel_agentic,9,3287,0.43935680389404297,True,1762781866.38207
+how many locations does optum have in california?,valyu,10,242,0.5224850177764893,True,1762781866.4650471
+how many locations does optum have in california?,parallel_oneshot,10,7375,0.5587592124938965,True,1762781866.5017338
+how many locations does optum have in california?,linkup_deep,20,6,3.4269421100616455,True,1762781869.36898
+how many locations does optum have in california?,linkup_standard,28,16,4.1980299949646,True,1762781870.140367
+how many locations does optum have in california?,exa,0,0,4.704279184341431,True,1762781870.6469069
+how many locations does optum have in california?,perplexity,14,113,7.317367076873779,True,1762781873.259468
+How many providers does First Coast Cardiovascular Institute have?,you,10,118,0.04367995262145996,True,1762781873.813958
+How many providers does First Coast Cardiovascular Institute have?,valyu,10,169,0.09851908683776855,True,1762781873.868354
+How many providers does First Coast Cardiovascular Institute have?,tavily,10,24,0.17589187622070312,True,1762781873.9451141
+How many providers does First Coast Cardiovascular Institute have?,parallel_oneshot,10,5959,0.35730791091918945,True,1762781874.1292212
+How many providers does First Coast Cardiovascular Institute have?,parallel_agentic,10,3263,1.3319249153137207,True,1762781875.102918
+How many providers does First Coast Cardiovascular Institute have?,linkup_standard,24,7,2.4589500427246094,True,1762781876.225041
+How many providers does First Coast Cardiovascular Institute have?,linkup_deep,26,7,4.860614061355591,True,1762781878.6285188
+How many providers does First Coast Cardiovascular Institute have?,perplexity,12,135,6.557739019393921,True,1762781880.324662
+How many providers does First Coast Cardiovascular Institute have?,exa,0,0,13.386765003204346,True,1762781887.155765
+Make detailed research about First Coast Cardiovascular Institute,you,10,126,0.04769396781921387,True,1762781887.7140858
+Make detailed research about First Coast Cardiovascular Institute,tavily,10,32,0.16730189323425293,True,1762781887.838088
+Make detailed research about First Coast Cardiovascular Institute,valyu,4,148,0.21263909339904785,True,1762781887.879463
+Make detailed research about First Coast Cardiovascular Institute,parallel_oneshot,10,7001,0.3347940444946289,True,1762781888.004299
+Make detailed research about First Coast Cardiovascular Institute,parallel_agentic,10,4948,5.123367786407471,True,1762781892.7907999
+Make detailed research about First Coast Cardiovascular Institute,linkup_standard,26,321,9.069002151489258,True,1762781896.730977
+Make detailed research about First Coast Cardiovascular Institute,exa,0,0,9.454448938369751,True,1762781897.11955
+Make detailed research about First Coast Cardiovascular Institute,perplexity,14,612,11.290010213851929,True,1762781898.953773
+Make detailed research about First Coast Cardiovascular Institute,linkup_deep,0,0,0.0,False,1762781917.673218
+How much Optum makes in revenue?,you,10,130,0.04825425148010254,True,1762781918.230617
+How much Optum makes in revenue?,tavily,9,19,0.2333059310913086,True,1762781918.4174662
+How much Optum makes in revenue?,valyu,1,35,0.3846449851989746,True,1762781918.571266
+How much Optum makes in revenue?,parallel_oneshot,10,10413,0.6019001007080078,True,1762781918.786758
+How much Optum makes in revenue?,linkup_standard,30,45,3.038118839263916,True,1762781921.217895
+How much Optum makes in revenue?,perplexity,11,106,4.797104835510254,True,1762781922.97787
+How much Optum makes in revenue?,linkup_deep,30,45,5.860888957977295,True,1762781924.0426712
+How much Optum makes in revenue?,parallel_agentic,10,3609,7.4075071811676025,True,1762781925.593558
+How much Optum makes in revenue?,exa,0,0,7.425863027572632,True,1762781925.61022
+give me more details,you,10,162,0.04797101020812988,True,1762781926.166603
+give me more details,tavily,10,27,0.1793200969696045,True,1762781926.298579
+give me more details,parallel_oneshot,10,5897,0.34697794914245605,True,1762781926.4668212
+give me more details,valyu,10,188,0.3964231014251709,True,1762781926.515456
+give me more details,parallel_agentic,10,5148,5.12583327293396,True,1762781931.246208
+give me more details,linkup_standard,20,277,6.946023225784302,True,1762781933.062452
+give me more details,exa,0,0,10.476253271102905,True,1762781936.596431
+give me more details,perplexity,9,197,10.946550130844116,True,1762781937.063651
+give me more details,linkup_deep,20,196,13.896979808807373,True,1762781940.014691
+How many locations does optum have in california?,you,10,151,0.04111289978027344,True,1762781940.564896
+How many locations does optum have in california?,valyu,10,242,0.08405399322509766,True,1762781940.610097
+How many locations does optum have in california?,tavily,9,33,0.17960214614868164,True,1762781940.7051148
+How many locations does optum have in california?,parallel_oneshot,9,7312,1.7719449996948242,True,1762781942.300976
+How many locations does optum have in california?,linkup_standard,27,16,2.9591410160064697,True,1762781943.4803488
+How many locations does optum have in california?,linkup_deep,20,6,3.5525319576263428,True,1762781944.0746849
+How many locations does optum have in california?,exa,0,0,4.4769439697265625,True,1762781945.001701
+How many locations does optum have in california?,parallel_agentic,10,4701,5.406495094299316,True,1762781945.934612
+How many locations does optum have in california?,perplexity,14,154,8.962897777557373,True,1762781949.48592
+please research ATL Pelvic Health,you,10,196,0.1205136775970459,True,1762781950.11794
+please research ATL Pelvic Health,tavily,10,37,0.17970609664916992,True,1762781950.1762261
+please research ATL Pelvic Health,valyu,10,219,0.18754792213439941,True,1762781950.187746
+please research ATL Pelvic Health,parallel_oneshot,9,4657,0.23721599578857422,True,1762781950.237889
+please research ATL Pelvic Health,parallel_agentic,9,4312,3.4393441677093506,True,1762781953.4418812
+please research ATL Pelvic Health,linkup_standard,30,212,7.94009804725647,True,1762781957.932874
+please research ATL Pelvic Health,exa,0,0,10.374204158782959,True,1762781960.370875
+please research ATL Pelvic Health,linkup_deep,30,230,13.719249963760376,True,1762781963.7121542
+please research ATL Pelvic Health,perplexity,15,470,22.87571096420288,True,1762781972.869576
+"please research: 
+at4k.com",you,10,110,0.04012107849121094,True,1762781973.4199061
+"please research: 
+at4k.com",valyu,10,188,0.07580280303955078,True,1762781973.4566872
+"please research: 
+at4k.com",tavily,10,32,0.17876029014587402,True,1762781973.559776
+"please research: 
+at4k.com",parallel_oneshot,10,4080,2.274984836578369,True,1762781975.660956
+"please research: 
+at4k.com",parallel_agentic,10,5567,4.413449048995972,True,1762781977.801096
+"please research: 
+at4k.com",linkup_deep,21,99,7.451333045959473,True,1762781980.828326
+"please research: 
+at4k.com",exa,0,0,10.427150964736938,True,1762781983.806561
+"please research: 
+at4k.com",perplexity,13,315,13.294834852218628,True,1762781986.672731
+"please research: 
+at4k.com",linkup_standard,0,6,19.032844066619873,True,1762781992.409297
+AMO physics machine learning 'AMO physics' machine learning applications,you,10,168,0.7858648300170898,True,1762781993.703752
+AMO physics machine learning 'AMO physics' machine learning applications,tavily,10,29,1.512063980102539,True,1762781994.433494
+AMO physics machine learning 'AMO physics' machine learning applications,parallel_oneshot,10,2760,2.5829169750213623,True,1762781995.5082629
+AMO physics machine learning 'AMO physics' machine learning applications,valyu,10,229,6.393006801605225,True,1762781999.3162858
+AMO physics machine learning 'AMO physics' machine learning applications,perplexity,12,395,7.312291622161865,True,1762782000.236641
+AMO physics machine learning 'AMO physics' machine learning applications,parallel_agentic,10,6700,7.374488830566406,True,1762782000.297348
+AMO physics machine learning 'AMO physics' machine learning applications,exa,0,0,8.751379251480103,True,1762782001.66974
+AMO physics machine learning 'AMO physics' machine learning applications,linkup_standard,30,363,13.55245590209961,True,1762782006.468359
+AMO physics machine learning 'AMO physics' machine learning applications,linkup_deep,30,250,13.752477169036865,True,1762782006.6688461
+"AMO machine learning DOE ""AMO"" ""machine learning"" Advanced Manufacturing Office AI ML",you,10,198,0.6983458995819092,True,1762782007.8758872
+"AMO machine learning DOE ""AMO"" ""machine learning"" Advanced Manufacturing Office AI ML",tavily,10,38,2.0586960315704346,True,1762782009.236298
+"AMO machine learning DOE ""AMO"" ""machine learning"" Advanced Manufacturing Office AI ML",parallel_oneshot,10,9154,4.54181694984436,True,1762782011.727561
+"AMO machine learning DOE ""AMO"" ""machine learning"" Advanced Manufacturing Office AI ML",parallel_agentic,10,2495,4.561426877975464,True,1762782011.7446651
+"AMO machine learning DOE ""AMO"" ""machine learning"" Advanced Manufacturing Office AI ML",valyu,10,231,4.707692861557007,True,1762782011.8877828
+"AMO machine learning DOE ""AMO"" ""machine learning"" Advanced Manufacturing Office AI ML",linkup_standard,30,311,10.96928596496582,True,1762782018.1422899
+"AMO machine learning DOE ""AMO"" ""machine learning"" Advanced Manufacturing Office AI ML",exa,0,0,12.887320041656494,True,1762782020.068321
+"AMO machine learning DOE ""AMO"" ""machine learning"" Advanced Manufacturing Office AI ML",linkup_deep,30,178,19.460819959640503,True,1762782026.6339881
+"AMO machine learning DOE ""AMO"" ""machine learning"" Advanced Manufacturing Office AI ML",perplexity,19,441,22.626426696777344,True,1762782029.801588
+AMO Nodebench 'AMO' 'Nodebench' integration 'AMO' 'Nodebench',you,10,159,0.7878940105438232,True,1762782031.101933
+AMO Nodebench 'AMO' 'Nodebench' integration 'AMO' 'Nodebench',valyu,10,85,1.3644418716430664,True,1762782031.683383
+AMO Nodebench 'AMO' 'Nodebench' integration 'AMO' 'Nodebench',tavily,10,23,1.5581977367401123,True,1762782031.874702
+AMO Nodebench 'AMO' 'Nodebench' integration 'AMO' 'Nodebench',parallel_oneshot,10,6250,2.784313917160034,True,1762782033.105799
+AMO Nodebench 'AMO' 'Nodebench' integration 'AMO' 'Nodebench',parallel_agentic,10,3578,5.552337884902954,True,1762782035.872604
+AMO Nodebench 'AMO' 'Nodebench' integration 'AMO' 'Nodebench',perplexity,19,425,8.003782033920288,True,1762782038.3141131
+AMO Nodebench 'AMO' 'Nodebench' integration 'AMO' 'Nodebench',exa,0,0,8.062404870986938,True,1762782038.37612
+AMO Nodebench 'AMO' 'Nodebench' integration 'AMO' 'Nodebench',linkup_standard,29,246,10.056934833526611,True,1762782040.365748
+AMO Nodebench 'AMO' 'Nodebench' integration 'AMO' 'Nodebench',linkup_deep,0,0,0.0,False,1762782060.323447
+Nodebench Node.js 'Nodebench' 'bench-node' 'node-bench' benchmarking library,you,10,89,0.8448829650878906,True,1762782061.67773
+Nodebench Node.js 'Nodebench' 'bench-node' 'node-bench' benchmarking library,valyu,10,184,1.5368399620056152,True,1762782062.370721
+Nodebench Node.js 'Nodebench' 'bench-node' 'node-bench' benchmarking library,tavily,10,29,1.6878671646118164,True,1762782062.522047
+Nodebench Node.js 'Nodebench' 'bench-node' 'node-bench' benchmarking library,parallel_oneshot,10,6646,2.6821281909942627,True,1762782063.517526
+Nodebench Node.js 'Nodebench' 'bench-node' 'node-bench' benchmarking library,parallel_agentic,10,1197,6.517445802688599,True,1762782067.3553169
+Nodebench Node.js 'Nodebench' 'bench-node' 'node-bench' benchmarking library,linkup_standard,30,163,6.660776853561401,True,1762782067.491044
+Nodebench Node.js 'Nodebench' 'bench-node' 'node-bench' benchmarking library,exa,0,0,9.736624002456665,True,1762782070.570843
+Nodebench Node.js 'Nodebench' 'bench-node' 'node-bench' benchmarking library,linkup_deep,30,286,18.643171072006226,True,1762782079.473517
+Nodebench Node.js 'Nodebench' 'bench-node' 'node-bench' benchmarking library,perplexity,7,439,19.87764811515808,True,1762782080.708781
+AMO machine learning 'AMO' 'machine learning' term 'AMO ML',you,10,197,0.8379640579223633,True,1762782082.053911
+AMO machine learning 'AMO' 'machine learning' term 'AMO ML',tavily,10,31,1.5358219146728516,True,1762782082.752734
+AMO machine learning 'AMO' 'machine learning' term 'AMO ML',parallel_oneshot,10,4929,2.678806781768799,True,1762782083.899372
+AMO machine learning 'AMO' 'machine learning' term 'AMO ML',valyu,10,235,5.1676249504089355,True,1762782086.387105
+AMO machine learning 'AMO' 'machine learning' term 'AMO ML',linkup_standard,30,181,6.670525074005127,True,1762782087.8834748
+AMO machine learning 'AMO' 'machine learning' term 'AMO ML',parallel_agentic,10,4340,10.940709114074707,True,1762782092.162464
+AMO machine learning 'AMO' 'machine learning' term 'AMO ML',exa,0,0,11.291760921478271,True,1762782092.508569
+AMO machine learning 'AMO' 'machine learning' term 'AMO ML',linkup_deep,30,167,11.322827100753784,True,1762782092.535956
+AMO machine learning 'AMO' 'machine learning' term 'AMO ML',perplexity,13,446,17.52987003326416,True,1762782098.7439659
+AMO Nodebench 'AMO' 'Nodebench',tavily,10,41,1.4393131732940674,True,1762782100.691529
+AMO Nodebench 'AMO' 'Nodebench',you,10,124,2.8188037872314453,True,1762782102.070603
+AMO Nodebench 'AMO' 'Nodebench',parallel_oneshot,10,6273,3.7934579849243164,True,1762782103.0463722
+AMO Nodebench 'AMO' 'Nodebench',valyu,10,267,3.7934348583221436,True,1762782103.046762
+AMO Nodebench 'AMO' 'Nodebench',linkup_standard,30,212,5.947082042694092,True,1762782105.197336
+AMO Nodebench 'AMO' 'Nodebench',perplexity,14,372,8.710266828536987,True,1762782107.961232
+AMO Nodebench 'AMO' 'Nodebench',parallel_agentic,10,7951,9.108318090438843,True,1762782108.361262
+AMO Nodebench 'AMO' 'Nodebench',exa,0,0,9.224372863769531,True,1762782108.476966
+AMO Nodebench 'AMO' 'Nodebench',linkup_deep,0,0,0.0,False,1762782129.256258
+Nodebench Node.js benchmark 'Nodebench' project,you,10,131,0.8256967067718506,True,1762782130.5921578
+Nodebench Node.js benchmark 'Nodebench' project,tavily,10,40,2.0549628734588623,True,1762782131.820707
+Nodebench Node.js benchmark 'Nodebench' project,valyu,10,249,3.6100668907165527,True,1762782133.380919
+Nodebench Node.js benchmark 'Nodebench' project,parallel_oneshot,10,6481,3.7342188358306885,True,1762782133.505116
+Nodebench Node.js benchmark 'Nodebench' project,parallel_agentic,10,3462,4.898017168045044,True,1762782134.67011
+Nodebench Node.js benchmark 'Nodebench' project,linkup_standard,30,186,9.590541124343872,True,1762782139.353295
+Nodebench Node.js benchmark 'Nodebench' project,perplexity,9,465,11.160387754440308,True,1762782140.924572
+Nodebench Node.js benchmark 'Nodebench' project,linkup_deep,30,151,13.882128715515137,True,1762782143.64563
+Nodebench Node.js benchmark 'Nodebench' project,exa,0,0,14.241921186447144,True,1762782144.007831
+capital of France,you,10,144,0.5128450393676758,True,1762782145.030136
+capital of France,tavily,9,28,1.4320430755615234,True,1762782145.9520051
+capital of France,valyu,10,228,1.43137788772583,True,1762782145.952527
+capital of France,parallel_oneshot,10,7105,2.370558977127075,True,1762782146.8925471
+capital of France,linkup_standard,20,6,3.267575979232788,True,1762782147.781754
+capital of France,linkup_deep,1,6,3.8881218433380127,True,1762782148.403072
+capital of France,perplexity,8,80,5.137843132019043,True,1762782149.6537092
+capital of France,parallel_agentic,10,4260,6.141158103942871,True,1762782150.664041
+capital of France,exa,0,0,6.191631078720093,True,1762782150.713294
+web research pricing rates per hour deliverables 'web research services' pricing 'freelance' 'hourly rate' 2024 2025,you,10,48,0.6706788539886475,True,1762782151.893795
+web research pricing rates per hour deliverables 'web research services' pricing 'freelance' 'hourly rate' 2024 2025,valyu,10,226,1.6146528720855713,True,1762782152.838363
+web research pricing rates per hour deliverables 'web research services' pricing 'freelance' 'hourly rate' 2024 2025,tavily,10,39,2.51590895652771,True,1762782153.7375581
+web research pricing rates per hour deliverables 'web research services' pricing 'freelance' 'hourly rate' 2024 2025,parallel_oneshot,10,10231,3.0110650062561035,True,1762782154.235986
+web research pricing rates per hour deliverables 'web research services' pricing 'freelance' 'hourly rate' 2024 2025,linkup_standard,29,224,7.163372039794922,True,1762782158.383241
+web research pricing rates per hour deliverables 'web research services' pricing 'freelance' 'hourly rate' 2024 2025,parallel_agentic,10,6078,7.16128396987915,True,1762782158.385149
+web research pricing rates per hour deliverables 'web research services' pricing 'freelance' 'hourly rate' 2024 2025,exa,0,0,8.554623126983643,True,1762782159.777345
+web research pricing rates per hour deliverables 'web research services' pricing 'freelance' 'hourly rate' 2024 2025,linkup_deep,29,202,14.180396795272827,True,1762782165.401122
+web research pricing rates per hour deliverables 'web research services' pricing 'freelance' 'hourly rate' 2024 2025,perplexity,13,393,16.374244213104248,True,1762782167.595307
+best tools for web research 2025 'web research' tools list 'search specialists' tools,you,10,147,0.7053942680358887,True,1762782168.809477
+best tools for web research 2025 'web research' tools list 'search specialists' tools,valyu,10,247,2.433871030807495,True,1762782170.540753
+best tools for web research 2025 'web research' tools list 'search specialists' tools,tavily,10,31,2.7538208961486816,True,1762782170.858455
+best tools for web research 2025 'web research' tools list 'search specialists' tools,parallel_oneshot,10,10537,3.8532700538635254,True,1762782171.961667
+best tools for web research 2025 'web research' tools list 'search specialists' tools,linkup_standard,30,266,9.067611932754517,True,1762782177.168427
+best tools for web research 2025 'web research' tools list 'search specialists' tools,exa,0,0,9.113872051239014,True,1762782177.2187362
+best tools for web research 2025 'web research' tools list 'search specialists' tools,parallel_agentic,10,8140,11.283163070678711,True,1762782179.3931992
+best tools for web research 2025 'web research' tools list 'search specialists' tools,linkup_deep,30,226,16.631351947784424,True,1762782184.732909
+best tools for web research 2025 'web research' tools list 'search specialists' tools,perplexity,15,432,24.918792963027954,True,1762782193.020946
+additional services offered by web search specialist list advanced services 'web search specialist' services,you,10,184,1.3311760425567627,True,1762782194.861944
+additional services offered by web search specialist list advanced services 'web search specialist' services,valyu,10,218,1.5720319747924805,True,1762782195.104727
+additional services offered by web search specialist list advanced services 'web search specialist' services,parallel_oneshot,10,10115,2.2597169876098633,True,1762782195.796397
+additional services offered by web search specialist list advanced services 'web search specialist' services,tavily,10,26,2.6363468170166016,True,1762782196.168
+additional services offered by web search specialist list advanced services 'web search specialist' services,exa,0,0,7.254040002822876,True,1762782200.7879171
+additional services offered by web search specialist list advanced services 'web search specialist' services,linkup_standard,30,266,8.41777491569519,True,1762782201.9455922
+additional services offered by web search specialist list advanced services 'web search specialist' services,perplexity,18,450,9.228764295578003,True,1762782202.758786
+additional services offered by web search specialist list advanced services 'web search specialist' services,parallel_agentic,10,8809,11.798663139343262,True,1762782205.336929
+additional services offered by web search specialist list advanced services 'web search specialist' services,linkup_deep,0,0,0.0,False,1762782223.538993
+examples of web research tasks and deliverables for web search specialists,you,10,178,0.812842845916748,True,1762782224.863261
+examples of web research tasks and deliverables for web search specialists,valyu,10,241,1.4476580619812012,True,1762782225.499706
+examples of web research tasks and deliverables for web search specialists,tavily,10,31,1.4836311340332031,True,1762782225.533229
+examples of web research tasks and deliverables for web search specialists,parallel_oneshot,10,11409,2.259382963180542,True,1762782226.311279
+examples of web research tasks and deliverables for web search specialists,parallel_agentic,10,5267,7.494457006454468,True,1762782231.545745
+examples of web research tasks and deliverables for web search specialists,perplexity,14,415,8.432467937469482,True,1762782232.480025
+examples of web research tasks and deliverables for web search specialists,exa,0,0,9.165321111679077,True,1762782233.215125
+examples of web research tasks and deliverables for web search specialists,linkup_standard,30,175,9.215808153152466,True,1762782233.2615979
+examples of web research tasks and deliverables for web search specialists,linkup_deep,30,215,15.556302785873413,True,1762782239.602443
+what can a web search specialist do list of capabilities examples,you,10,189,1.0221080780029297,True,1762782241.1358578
+what can a web search specialist do list of capabilities examples,valyu,10,241,1.3336701393127441,True,1762782241.4483368
+what can a web search specialist do list of capabilities examples,tavily,9,27,1.502918004989624,True,1762782241.61887
+what can a web search specialist do list of capabilities examples,parallel_oneshot,10,10888,2.092427968978882,True,1762782242.209267
+what can a web search specialist do list of capabilities examples,linkup_standard,20,323,9.297513008117676,True,1762782249.4067829
+what can a web search specialist do list of capabilities examples,parallel_agentic,10,6393,9.396972894668579,True,1762782249.5169458
+what can a web search specialist do list of capabilities examples,exa,0,0,10.918039798736572,True,1762782251.031847
+what can a web search specialist do list of capabilities examples,perplexity,14,347,13.974965810775757,True,1762782254.086585
+what can a web search specialist do list of capabilities examples,linkup_deep,20,280,14.071501970291138,True,1762782254.18121
+Snowflake Summit 2025 video YouTube 'Snowflake Summit 2025' 'Cortex AISQL' 'Snowflake' video 'earnings call' 'Snowflake earnings call 2025' YouTube,you,10,88,0.6255197525024414,True,1762782255.3167748
+Snowflake Summit 2025 video YouTube 'Snowflake Summit 2025' 'Cortex AISQL' 'Snowflake' video 'earnings call' 'Snowflake earnings call 2025' YouTube,valyu,10,70,1.4944570064544678,True,1762782256.1863658
+Snowflake Summit 2025 video YouTube 'Snowflake Summit 2025' 'Cortex AISQL' 'Snowflake' video 'earnings call' 'Snowflake earnings call 2025' YouTube,parallel_oneshot,10,4671,2.676172971725464,True,1762782257.3696399
+Snowflake Summit 2025 video YouTube 'Snowflake Summit 2025' 'Cortex AISQL' 'Snowflake' video 'earnings call' 'Snowflake earnings call 2025' YouTube,tavily,10,27,2.743112325668335,True,1762782257.434125
+Snowflake Summit 2025 video YouTube 'Snowflake Summit 2025' 'Cortex AISQL' 'Snowflake' video 'earnings call' 'Snowflake earnings call 2025' YouTube,parallel_agentic,10,4823,7.214034080505371,True,1762782261.907958
+Snowflake Summit 2025 video YouTube 'Snowflake Summit 2025' 'Cortex AISQL' 'Snowflake' video 'earnings call' 'Snowflake earnings call 2025' YouTube,exa,0,0,9.151299953460693,True,1762782263.840317
+Snowflake Summit 2025 video YouTube 'Snowflake Summit 2025' 'Cortex AISQL' 'Snowflake' video 'earnings call' 'Snowflake earnings call 2025' YouTube,perplexity,14,533,9.739536046981812,True,1762782264.428738
+Snowflake Summit 2025 video YouTube 'Snowflake Summit 2025' 'Cortex AISQL' 'Snowflake' video 'earnings call' 'Snowflake earnings call 2025' YouTube,linkup_standard,30,137,11.039544105529785,True,1762782265.727089
+Snowflake Summit 2025 video YouTube 'Snowflake Summit 2025' 'Cortex AISQL' 'Snowflake' video 'earnings call' 'Snowflake earnings call 2025' YouTube,linkup_deep,60,347,21.490277767181396,True,1762782276.18081
+Snowflake SNOW stock price market cap EPS revenue latest quarterly results guidance 2025,you,10,103,0.7435212135314941,True,1762782277.433929
+Snowflake SNOW stock price market cap EPS revenue latest quarterly results guidance 2025,tavily,10,28,2.066988706588745,True,1762782278.7587001
+Snowflake SNOW stock price market cap EPS revenue latest quarterly results guidance 2025,parallel_oneshot,10,9096,2.7946629524230957,True,1762782279.487361
+Snowflake SNOW stock price market cap EPS revenue latest quarterly results guidance 2025,valyu,3,51,6.957525014877319,True,1762782283.64904
+Snowflake SNOW stock price market cap EPS revenue latest quarterly results guidance 2025,linkup_standard,30,179,7.979375123977661,True,1762782284.666976
+Snowflake SNOW stock price market cap EPS revenue latest quarterly results guidance 2025,exa,0,0,9.935056209564209,True,1762782286.6257558
+Snowflake SNOW stock price market cap EPS revenue latest quarterly results guidance 2025,parallel_agentic,10,6078,10.827769041061401,True,1762782287.523232
+Snowflake SNOW stock price market cap EPS revenue latest quarterly results guidance 2025,linkup_deep,30,273,17.485146045684814,True,1762782294.172985
+Snowflake SNOW stock price market cap EPS revenue latest quarterly results guidance 2025,perplexity,16,437,19.810123920440674,True,1762782296.4991229
+Snowflake Inc latest news October 2025 SNOW Snowflake news,you,10,138,0.7276389598846436,True,1762782297.736879
+Snowflake Inc latest news October 2025 SNOW Snowflake news,valyu,10,209,1.6016929149627686,True,1762782298.614654
+Snowflake Inc latest news October 2025 SNOW Snowflake news,tavily,10,26,2.02435302734375,True,1762782299.034158
+Snowflake Inc latest news October 2025 SNOW Snowflake news,parallel_oneshot,10,8607,3.2553389072418213,True,1762782300.2710679
+Snowflake Inc latest news October 2025 SNOW Snowflake news,exa,0,0,7.721492290496826,True,1762782304.729593
+Snowflake Inc latest news October 2025 SNOW Snowflake news,parallel_agentic,10,3090,10.029839038848877,True,1762782307.044707
+Snowflake Inc latest news October 2025 SNOW Snowflake news,linkup_standard,29,258,13.797778844833374,True,1762782310.8034072
+Snowflake Inc latest news October 2025 SNOW Snowflake news,linkup_deep,29,282,14.657927989959717,True,1762782311.6646662
+Snowflake Inc latest news October 2025 SNOW Snowflake news,perplexity,9,343,14.754501104354858,True,1762782311.761011
+Snowflake latest news October 2025 SNOW company news earnings product partnerships,you,10,137,0.680941104888916,True,1762782312.951882
+Snowflake latest news October 2025 SNOW company news earnings product partnerships,valyu,10,215,1.4827370643615723,True,1762782313.755593
+Snowflake latest news October 2025 SNOW company news earnings product partnerships,tavily,10,31,2.093266248703003,True,1762782314.365189
+Snowflake latest news October 2025 SNOW company news earnings product partnerships,parallel_oneshot,10,8333,4.6275551319122314,True,1762782316.90188
+Snowflake latest news October 2025 SNOW company news earnings product partnerships,linkup_standard,30,250,9.175058126449585,True,1762782321.443594
+Snowflake latest news October 2025 SNOW company news earnings product partnerships,exa,0,0,9.202309131622314,True,1762782321.4746938
+Snowflake latest news October 2025 SNOW company news earnings product partnerships,parallel_agentic,10,4645,9.560826301574707,True,1762782321.835775
+Snowflake latest news October 2025 SNOW company news earnings product partnerships,perplexity,9,478,19.116158962249756,True,1762782331.385969
+Snowflake latest news October 2025 SNOW company news earnings product partnerships,linkup_deep,30,216,20.448014974594116,True,1762782332.717123
+Snowflake stock price SNOW latest quote market cap revenue EPS guidance Q2 2025 earnings results financial data balance sheet income statement key metrics,you,10,131,0.6709377765655518,True,1762782333.898189
+Snowflake stock price SNOW latest quote market cap revenue EPS guidance Q2 2025 earnings results financial data balance sheet income statement key metrics,tavily,10,16,2.830461025238037,True,1762782336.058441
+Snowflake stock price SNOW latest quote market cap revenue EPS guidance Q2 2025 earnings results financial data balance sheet income statement key metrics,parallel_oneshot,10,8684,3.004159927368164,True,1762782336.2349062
+Snowflake stock price SNOW latest quote market cap revenue EPS guidance Q2 2025 earnings results financial data balance sheet income statement key metrics,valyu,2,14,6.7704949378967285,True,1762782339.9990458
+Snowflake stock price SNOW latest quote market cap revenue EPS guidance Q2 2025 earnings results financial data balance sheet income statement key metrics,exa,0,0,9.35256290435791,True,1762782342.579502
+Snowflake stock price SNOW latest quote market cap revenue EPS guidance Q2 2025 earnings results financial data balance sheet income statement key metrics,linkup_standard,29,287,9.56330394744873,True,1762782342.7869298
+Snowflake stock price SNOW latest quote market cap revenue EPS guidance Q2 2025 earnings results financial data balance sheet income statement key metrics,perplexity,14,352,9.623178005218506,True,1762782342.848504
+Snowflake stock price SNOW latest quote market cap revenue EPS guidance Q2 2025 earnings results financial data balance sheet income statement key metrics,parallel_agentic,10,4634,9.662699937820435,True,1762782342.8951051
+Snowflake stock price SNOW latest quote market cap revenue EPS guidance Q2 2025 earnings results financial data balance sheet income statement key metrics,linkup_deep,2,168,14.189346075057983,True,1762782347.413344
+Snowflake YouTube videos earnings call Snowflake keynote demo 2025 Snowflake Inc video recordings Snowflake Summit 2025,you,10,67,0.5601818561553955,True,1762782348.47865
+Snowflake YouTube videos earnings call Snowflake keynote demo 2025 Snowflake Inc video recordings Snowflake Summit 2025,valyu,10,74,1.809436321258545,True,1762782349.730342
+Snowflake YouTube videos earnings call Snowflake keynote demo 2025 Snowflake Inc video recordings Snowflake Summit 2025,parallel_oneshot,10,6855,3.1740894317626953,True,1762782351.0974138
+Snowflake YouTube videos earnings call Snowflake keynote demo 2025 Snowflake Inc video recordings Snowflake Summit 2025,tavily,10,26,5.001455068588257,True,1762782352.921624
+Snowflake YouTube videos earnings call Snowflake keynote demo 2025 Snowflake Inc video recordings Snowflake Summit 2025,exa,0,0,7.642168045043945,True,1762782355.559974
+Snowflake YouTube videos earnings call Snowflake keynote demo 2025 Snowflake Inc video recordings Snowflake Summit 2025,parallel_agentic,10,4039,8.755744934082031,True,1762782356.679081
+Snowflake YouTube videos earnings call Snowflake keynote demo 2025 Snowflake Inc video recordings Snowflake Summit 2025,linkup_standard,30,301,9.289972066879272,True,1762782357.2060218
+Snowflake YouTube videos earnings call Snowflake keynote demo 2025 Snowflake Inc video recordings Snowflake Summit 2025,perplexity,17,343,13.822523832321167,True,1762782361.740053
+Snowflake YouTube videos earnings call Snowflake keynote demo 2025 Snowflake Inc video recordings Snowflake Summit 2025,linkup_deep,30,200,20.316554069519043,True,1762782368.23263
+"founded after 2025 funded $2,000,000 or more companies",you,10,173,0.9534289836883545,True,1762782369.696316
+"founded after 2025 funded $2,000,000 or more companies",tavily,10,32,1.9412028789520264,True,1762782370.6848168
+"founded after 2025 funded $2,000,000 or more companies",valyu,10,224,1.9418668746948242,True,1762782370.685554
+"founded after 2025 funded $2,000,000 or more companies",parallel_oneshot,10,7134,2.5673248767852783,True,1762782371.312376
+"founded after 2025 funded $2,000,000 or more companies",parallel_agentic,10,4810,5.951921224594116,True,1762782374.697461
+"founded after 2025 funded $2,000,000 or more companies",perplexity,12,270,6.695159912109375,True,1762782375.4351501
+"founded after 2025 funded $2,000,000 or more companies",exa,0,0,7.7359209060668945,True,1762782376.478632
+"founded after 2025 funded $2,000,000 or more companies",linkup_standard,30,135,8.371035814285278,True,1762782377.110337
+"founded after 2025 funded $2,000,000 or more companies",linkup_deep,30,131,15.490208864212036,True,1762782384.2315252
+founded after 2025 funded $2M or more companies,you,10,206,0.7816920280456543,True,1762782385.519295
+founded after 2025 funded $2M or more companies,valyu,10,226,1.729369878768921,True,1762782386.469795
+founded after 2025 funded $2M or more companies,tavily,10,36,2.1617071628570557,True,1762782386.8998961
+founded after 2025 funded $2M or more companies,parallel_oneshot,10,7894,2.690613031387329,True,1762782387.433503
+founded after 2025 funded $2M or more companies,parallel_agentic,10,3784,5.536592245101929,True,1762782390.280292
+founded after 2025 funded $2M or more companies,exa,0,0,7.974255800247192,True,1762782392.711802
+founded after 2025 funded $2M or more companies,linkup_standard,30,179,11.835071802139282,True,1762782396.569011
+founded after 2025 funded $2M or more companies,perplexity,13,431,18.138787269592285,True,1762782402.874536
+founded after 2025 funded $2M or more companies,linkup_deep,0,0,0.0,False,1762782414.744193
+founded after 2025 funded $2M+ or more companies,you,10,206,0.727107048034668,True,1762782415.981579
+founded after 2025 funded $2M+ or more companies,valyu,10,226,1.648953914642334,True,1762782416.904695
+founded after 2025 funded $2M+ or more companies,tavily,10,28,2.2337839603424072,True,1762782417.48858
+founded after 2025 funded $2M+ or more companies,parallel_oneshot,10,8253,3.6897640228271484,True,1762782418.946242
+founded after 2025 funded $2M+ or more companies,linkup_standard,30,154,6.511851072311401,True,1762782421.763166
+founded after 2025 funded $2M+ or more companies,parallel_agentic,10,3136,8.03369402885437,True,1762782423.2905018
+founded after 2025 funded $2M+ or more companies,exa,0,0,8.819284200668335,True,1762782424.075295
+founded after 2025 funded $2M+ or more companies,perplexity,17,439,16.870290279388428,True,1762782432.122734
+founded after 2025 funded $2M+ or more companies,linkup_deep,0,0,0.0,False,1762782445.605807
+artificial intelligence founded after 2025 funded $2M or more companies,you,10,118,0.8054780960083008,True,1762782446.920854
+artificial intelligence founded after 2025 funded $2M or more companies,tavily,10,34,1.466658115386963,True,1762782447.583412
+artificial intelligence founded after 2025 funded $2M or more companies,parallel_oneshot,10,7764,2.574233055114746,True,1762782448.6920252
+artificial intelligence founded after 2025 funded $2M or more companies,valyu,10,149,7.171260118484497,True,1762782453.287575
+artificial intelligence founded after 2025 funded $2M or more companies,linkup_standard,30,206,8.064133882522583,True,1762782454.175686
+artificial intelligence founded after 2025 funded $2M or more companies,parallel_agentic,10,4706,8.703311920166016,True,1762782454.822171
+artificial intelligence founded after 2025 funded $2M or more companies,exa,0,0,11.720809936523438,True,1762782457.8350132
+artificial intelligence founded after 2025 funded $2M or more companies,perplexity,16,432,18.601266860961914,True,1762782464.712636
+artificial intelligence founded after 2025 funded $2M or more companies,linkup_deep,0,0,0.0,False,1762782476.427579
+"founded after 2025 funded 2,000,000 or more companies",you,10,185,0.8734219074249268,True,1762782477.812722
+"founded after 2025 funded 2,000,000 or more companies",tavily,10,39,1.610799789428711,True,1762782478.550317
+"founded after 2025 funded 2,000,000 or more companies",valyu,10,223,1.73744797706604,True,1762782478.6787
+"founded after 2025 funded 2,000,000 or more companies",parallel_oneshot,10,7742,2.422271966934204,True,1762782479.366453
+"founded after 2025 funded 2,000,000 or more companies",linkup_standard,21,17,3.0400187969207764,True,1762782479.973035
+"founded after 2025 funded 2,000,000 or more companies",perplexity,16,230,7.342567205429077,True,1762782484.279053
+"founded after 2025 funded 2,000,000 or more companies",parallel_agentic,10,6801,8.465100049972534,True,1762782485.4098618
+"founded after 2025 funded 2,000,000 or more companies",exa,0,0,10.991958141326904,True,1762782487.9339788
+"founded after 2025 funded 2,000,000 or more companies",linkup_deep,0,0,0.0,False,1762782507.2721632
+General Intuition founded 2025 'founded' 'General Intuition' 'seed' 134m 'founded in 2025' 'founders',you,10,141,0.6925129890441895,True,1762782508.47452
+General Intuition founded 2025 'founded' 'General Intuition' 'seed' 134m 'founded in 2025' 'founders',valyu,10,210,1.526252031326294,True,1762782509.309115
+General Intuition founded 2025 'founded' 'General Intuition' 'seed' 134m 'founded in 2025' 'founders',parallel_oneshot,10,6561,2.2022621631622314,True,1762782509.986998
+General Intuition founded 2025 'founded' 'General Intuition' 'seed' 134m 'founded in 2025' 'founders',tavily,10,35,2.746962070465088,True,1762782510.5303948
+General Intuition founded 2025 'founded' 'General Intuition' 'seed' 134m 'founded in 2025' 'founders',linkup_standard,22,71,3.926220178604126,True,1762782511.7048068
+General Intuition founded 2025 'founded' 'General Intuition' 'seed' 134m 'founded in 2025' 'founders',parallel_agentic,10,3231,7.0808820724487305,True,1762782514.865896
+General Intuition founded 2025 'founded' 'General Intuition' 'seed' 134m 'founded in 2025' 'founders',exa,0,0,7.649454116821289,True,1762782515.431421
+General Intuition founded 2025 'founded' 'General Intuition' 'seed' 134m 'founded in 2025' 'founders',linkup_deep,21,80,8.13699197769165,True,1762782515.916542
+General Intuition founded 2025 'founded' 'General Intuition' 'seed' 134m 'founded in 2025' 'founders',perplexity,10,188,9.807564973831177,True,1762782517.58771
+software founded after 2025 funded $2M or more companies,you,10,115,0.7965798377990723,True,1762782518.895017
+software founded after 2025 funded $2M or more companies,valyu,10,166,1.6707899570465088,True,1762782519.769797
+software founded after 2025 funded $2M or more companies,tavily,10,33,2.4747250080108643,True,1762782520.5722759
+software founded after 2025 funded $2M or more companies,parallel_oneshot,10,6622,3.0498759746551514,True,1762782521.147049
+software founded after 2025 funded $2M or more companies,perplexity,16,266,6.303695201873779,True,1762782524.398296
+software founded after 2025 funded $2M or more companies,parallel_agentic,10,7686,7.226952314376831,True,1762782525.324911
+software founded after 2025 funded $2M or more companies,exa,0,0,8.226261138916016,True,1762782526.322494
+software founded after 2025 funded $2M or more companies,linkup_deep,30,44,8.966588020324707,True,1762782527.061546
+software founded after 2025 funded $2M or more companies,linkup_standard,30,267,9.131463050842285,True,1762782527.225363
+Skatteverket official guidelines for Swedish invoice requirements VAT moms OCR reverse charge,you,10,185,0.732140064239502,True,1762782528.462466
+Skatteverket official guidelines for Swedish invoice requirements VAT moms OCR reverse charge,tavily,10,31,1.5056681632995605,True,1762782529.237259
+Skatteverket official guidelines for Swedish invoice requirements VAT moms OCR reverse charge,valyu,10,234,1.529024600982666,True,1762782529.261249
+Skatteverket official guidelines for Swedish invoice requirements VAT moms OCR reverse charge,parallel_oneshot,10,6582,4.898707866668701,True,1762782532.631904
+Skatteverket official guidelines for Swedish invoice requirements VAT moms OCR reverse charge,exa,0,0,9.77350401878357,True,1762782537.504757
+Skatteverket official guidelines for Swedish invoice requirements VAT moms OCR reverse charge,linkup_standard,26,471,14.624310970306396,True,1762782542.351624
+Skatteverket official guidelines for Swedish invoice requirements VAT moms OCR reverse charge,parallel_agentic,10,7094,15.8055739402771,True,1762782543.539382
+Skatteverket official guidelines for Swedish invoice requirements VAT moms OCR reverse charge,linkup_deep,26,447,24.5065860748291,True,1762782552.2337952
+Skatteverket official guidelines for Swedish invoice requirements VAT moms OCR reverse charge,perplexity,0,0,0.0,False,1762782557.739198
+"Find best practices for Swedish invoice formatting requirements including OCR numbers, date formats, VAT display (moms), and reverse charge taxation (omvänd beskattningsskyldighet)",you,10,201,0.787700891494751,True,1762782559.0372531
+"Find best practices for Swedish invoice formatting requirements including OCR numbers, date formats, VAT display (moms), and reverse charge taxation (omvänd beskattningsskyldighet)",valyu,10,240,1.55161714553833,True,1762782559.805485
+"Find best practices for Swedish invoice formatting requirements including OCR numbers, date formats, VAT display (moms), and reverse charge taxation (omvänd beskattningsskyldighet)",tavily,10,29,3.06088924407959,True,1762782561.311311
+"Find best practices for Swedish invoice formatting requirements including OCR numbers, date formats, VAT display (moms), and reverse charge taxation (omvänd beskattningsskyldighet)",parallel_oneshot,10,8827,4.241562843322754,True,1762782562.4971719
+"Find best practices for Swedish invoice formatting requirements including OCR numbers, date formats, VAT display (moms), and reverse charge taxation (omvänd beskattningsskyldighet)",parallel_agentic,10,5307,8.055132865905762,True,1762782566.3127859
+"Find best practices for Swedish invoice formatting requirements including OCR numbers, date formats, VAT display (moms), and reverse charge taxation (omvänd beskattningsskyldighet)",linkup_standard,30,452,12.471214056015015,True,1762782570.717609
+"Find best practices for Swedish invoice formatting requirements including OCR numbers, date formats, VAT display (moms), and reverse charge taxation (omvänd beskattningsskyldighet)",exa,0,0,12.834374904632568,True,1762782571.083297
+"Find best practices for Swedish invoice formatting requirements including OCR numbers, date formats, VAT display (moms), and reverse charge taxation (omvänd beskattningsskyldighet)",linkup_deep,30,553,25.038739919662476,True,1762782583.285706
+"Find best practices for Swedish invoice formatting requirements including OCR numbers, date formats, VAT display (moms), and reverse charge taxation (omvänd beskattningsskyldighet)",perplexity,0,0,0.0,False,1762782588.3536892
+accelerate version that supports keep_torch_compile in unwrap_model,you,10,71,0.7312958240509033,True,1762782589.593757
+accelerate version that supports keep_torch_compile in unwrap_model,tavily,10,30,1.7820801734924316,True,1762782590.645348
+accelerate version that supports keep_torch_compile in unwrap_model,parallel_oneshot,10,6943,2.4569473266601562,True,1762782591.3252769
+accelerate version that supports keep_torch_compile in unwrap_model,valyu,10,209,4.931638956069946,True,1762782593.796405
+accelerate version that supports keep_torch_compile in unwrap_model,linkup_standard,30,134,7.607892036437988,True,1762782596.466882
+accelerate version that supports keep_torch_compile in unwrap_model,parallel_agentic,10,2547,10.734973192214966,True,1762782599.604364
+accelerate version that supports keep_torch_compile in unwrap_model,linkup_deep,30,285,15.426542043685913,True,1762782604.2871659
+accelerate version that supports keep_torch_compile in unwrap_model,exa,0,0,15.533381938934326,True,1762782604.396288
+accelerate version that supports keep_torch_compile in unwrap_model,perplexity,10,233,17.782140254974365,True,1762782606.640914
+How to fix 'Accelerator.unwrap_model() got an unexpected keyword argument keep_torch_compile' error with latest transformers and accelerate versions? What's the correct way to make them compatible?,you,10,91,0.8991072177886963,True,1762782608.050355
+How to fix 'Accelerator.unwrap_model() got an unexpected keyword argument keep_torch_compile' error with latest transformers and accelerate versions? What's the correct way to make them compatible?,parallel_oneshot,10,6312,2.875859260559082,True,1762782610.031283
+How to fix 'Accelerator.unwrap_model() got an unexpected keyword argument keep_torch_compile' error with latest transformers and accelerate versions? What's the correct way to make them compatible?,tavily,10,23,2.9887571334838867,True,1762782610.140378
+How to fix 'Accelerator.unwrap_model() got an unexpected keyword argument keep_torch_compile' error with latest transformers and accelerate versions? What's the correct way to make them compatible?,valyu,10,218,5.818286895751953,True,1762782612.971508
+How to fix 'Accelerator.unwrap_model() got an unexpected keyword argument keep_torch_compile' error with latest transformers and accelerate versions? What's the correct way to make them compatible?,perplexity,10,243,7.2233216762542725,True,1762782614.372295
+How to fix 'Accelerator.unwrap_model() got an unexpected keyword argument keep_torch_compile' error with latest transformers and accelerate versions? What's the correct way to make them compatible?,parallel_agentic,10,2875,9.500416994094849,True,1762782616.655825
+How to fix 'Accelerator.unwrap_model() got an unexpected keyword argument keep_torch_compile' error with latest transformers and accelerate versions? What's the correct way to make them compatible?,linkup_standard,30,232,11.12488603591919,True,1762782618.272585
+How to fix 'Accelerator.unwrap_model() got an unexpected keyword argument keep_torch_compile' error with latest transformers and accelerate versions? What's the correct way to make them compatible?,exa,0,0,13.23586368560791,True,1762782620.387688
+How to fix 'Accelerator.unwrap_model() got an unexpected keyword argument keep_torch_compile' error with latest transformers and accelerate versions? What's the correct way to make them compatible?,linkup_deep,30,225,25.774313926696777,True,1762782632.922286
+What is JPYC stablecoin? How does it work technically? What blockchain does it use? How can developers integrate JPYC into applications for payment processing and accounting?,you,10,155,0.6869781017303467,True,1762782634.120775
+What is JPYC stablecoin? How does it work technically? What blockchain does it use? How can developers integrate JPYC into applications for payment processing and accounting?,valyu,10,203,1.5976219177246094,True,1762782635.033291
+What is JPYC stablecoin? How does it work technically? What blockchain does it use? How can developers integrate JPYC into applications for payment processing and accounting?,parallel_oneshot,10,6805,2.8564071655273438,True,1762782636.294837
+What is JPYC stablecoin? How does it work technically? What blockchain does it use? How can developers integrate JPYC into applications for payment processing and accounting?,tavily,10,31,3.6685171127319336,True,1762782637.1027882
+What is JPYC stablecoin? How does it work technically? What blockchain does it use? How can developers integrate JPYC into applications for payment processing and accounting?,parallel_agentic,10,6053,8.239006996154785,True,1762782641.676544
+What is JPYC stablecoin? How does it work technically? What blockchain does it use? How can developers integrate JPYC into applications for payment processing and accounting?,linkup_standard,30,292,9.60788106918335,True,1762782643.037647
+What is JPYC stablecoin? How does it work technically? What blockchain does it use? How can developers integrate JPYC into applications for payment processing and accounting?,exa,0,0,11.074183940887451,True,1762782644.5080361
+What is JPYC stablecoin? How does it work technically? What blockchain does it use? How can developers integrate JPYC into applications for payment processing and accounting?,linkup_deep,30,274,16.16934108734131,True,1762782649.600075
+What is JPYC stablecoin? How does it work technically? What blockchain does it use? How can developers integrate JPYC into applications for payment processing and accounting?,perplexity,0,0,0.0,False,1762782663.468023
+jalali_table_calendar_plus Flutter package documentation JalaliTableCalendarOption parameters,you,10,82,0.6169490814208984,True,1762782664.598021
+jalali_table_calendar_plus Flutter package documentation JalaliTableCalendarOption parameters,tavily,7,24,1.59989595413208,True,1762782665.58209
+jalali_table_calendar_plus Flutter package documentation JalaliTableCalendarOption parameters,valyu,10,167,1.6842119693756104,True,1762782665.667469
+jalali_table_calendar_plus Flutter package documentation JalaliTableCalendarOption parameters,parallel_oneshot,10,1081,3.1653378009796143,True,1762782667.149971
+jalali_table_calendar_plus Flutter package documentation JalaliTableCalendarOption parameters,linkup_standard,30,82,4.9113850593566895,True,1762782668.8880808
+jalali_table_calendar_plus Flutter package documentation JalaliTableCalendarOption parameters,parallel_agentic,10,2031,8.728835105895996,True,1762782672.7169669
+jalali_table_calendar_plus Flutter package documentation JalaliTableCalendarOption parameters,exa,0,0,12.042970895767212,True,1762782676.023485
+jalali_table_calendar_plus Flutter package documentation JalaliTableCalendarOption parameters,perplexity,11,333,19.16784691810608,True,1762782683.1449192
+jalali_table_calendar_plus Flutter package documentation JalaliTableCalendarOption parameters,linkup_deep,31,164,22.636043787002563,True,1762782686.614033
+What are the available parameters for JalaliTableCalendarOption in the jalali_table_calendar_plus Flutter package?,you,10,82,0.6019229888916016,True,1762782687.7289522
+What are the available parameters for JalaliTableCalendarOption in the jalali_table_calendar_plus Flutter package?,valyu,10,197,2.258795976638794,True,1762782689.386231
+What are the available parameters for JalaliTableCalendarOption in the jalali_table_calendar_plus Flutter package?,tavily,6,31,2.5259881019592285,True,1762782689.653485
+What are the available parameters for JalaliTableCalendarOption in the jalali_table_calendar_plus Flutter package?,parallel_oneshot,10,5010,3.798171281814575,True,1762782690.928172
+What are the available parameters for JalaliTableCalendarOption in the jalali_table_calendar_plus Flutter package?,linkup_standard,21,57,4.583698034286499,True,1762782691.705694
+What are the available parameters for JalaliTableCalendarOption in the jalali_table_calendar_plus Flutter package?,parallel_agentic,10,2789,4.693010091781616,True,1762782691.8247879
+What are the available parameters for JalaliTableCalendarOption in the jalali_table_calendar_plus Flutter package?,perplexity,9,140,7.715074062347412,True,1762782694.839776
+What are the available parameters for JalaliTableCalendarOption in the jalali_table_calendar_plus Flutter package?,exa,0,0,8.515244960784912,True,1762782695.6398458
+What are the available parameters for JalaliTableCalendarOption in the jalali_table_calendar_plus Flutter package?,linkup_deep,22,57,12.983808994293213,True,1762782700.1063209
+Swedish invoice formatting requirements VAT currency date format,you,10,265,0.8595151901245117,True,1762782701.476012
+Swedish invoice formatting requirements VAT currency date format,valyu,10,251,1.3637239933013916,True,1762782701.985142
+Swedish invoice formatting requirements VAT currency date format,tavily,10,31,1.6502270698547363,True,1762782702.267594
+Swedish invoice formatting requirements VAT currency date format,parallel_oneshot,10,8960,2.023510694503784,True,1762782702.646143
+Swedish invoice formatting requirements VAT currency date format,parallel_agentic,10,5089,6.320204973220825,True,1762782706.943059
+Swedish invoice formatting requirements VAT currency date format,linkup_standard,30,326,7.627375841140747,True,1762782708.240561
+Swedish invoice formatting requirements VAT currency date format,exa,0,0,15.693405866622925,True,1762782716.309195
+Swedish invoice formatting requirements VAT currency date format,linkup_deep,30,321,17.73225712776184,True,1762782718.346057
+Swedish invoice formatting requirements VAT currency date format,perplexity,16,432,20.75853180885315,True,1762782721.374902
+Cloudflare Workers 1MB size limit workaround PDF libraries bundling,you,10,71,0.7870690822601318,True,1762782722.674421
+Cloudflare Workers 1MB size limit workaround PDF libraries bundling,valyu,10,252,1.3964731693267822,True,1762782723.288671
+Cloudflare Workers 1MB size limit workaround PDF libraries bundling,tavily,10,32,1.7086901664733887,True,1762782723.597346
+Cloudflare Workers 1MB size limit workaround PDF libraries bundling,parallel_oneshot,10,4114,2.036126136779785,True,1762782723.9287622
+Cloudflare Workers 1MB size limit workaround PDF libraries bundling,parallel_agentic,10,2057,5.389369249343872,True,1762782727.279925
+Cloudflare Workers 1MB size limit workaround PDF libraries bundling,linkup_standard,30,266,6.4877707958221436,True,1762782728.3693209
+Cloudflare Workers 1MB size limit workaround PDF libraries bundling,exa,0,0,8.674966096878052,True,1762782730.561533
+Cloudflare Workers 1MB size limit workaround PDF libraries bundling,linkup_deep,30,355,15.827285051345825,True,1762782737.7104378
+Cloudflare Workers 1MB size limit workaround PDF libraries bundling,perplexity,5,395,22.60106325149536,True,1762782744.484482
+Cloudflare Workers PDF generation best practices 2024 performance comparison,you,10,151,0.7168340682983398,True,1762782745.7147362
+Cloudflare Workers PDF generation best practices 2024 performance comparison,valyu,10,227,1.696181058883667,True,1762782746.6958668
+Cloudflare Workers PDF generation best practices 2024 performance comparison,tavily,10,43,1.7322490215301514,True,1762782746.7303739
+Cloudflare Workers PDF generation best practices 2024 performance comparison,parallel_oneshot,10,9945,3.827275037765503,True,1762782748.8290849
+Cloudflare Workers PDF generation best practices 2024 performance comparison,parallel_agentic,10,5206,7.5615928173065186,True,1762782752.562091
+Cloudflare Workers PDF generation best practices 2024 performance comparison,linkup_standard,24,319,9.00137710571289,True,1762782753.9935942
+Cloudflare Workers PDF generation best practices 2024 performance comparison,exa,0,0,10.93792176246643,True,1762782755.9333298
+Cloudflare Workers PDF generation best practices 2024 performance comparison,linkup_deep,24,372,19.04874324798584,True,1762782764.0419462
+Cloudflare Workers PDF generation best practices 2024 performance comparison,perplexity,15,475,24.72698426246643,True,1762782769.71983
+react-pdf @react-pdf/renderer Cloudflare Workers Swedish characters invoice template,you,10,95,0.8322229385375977,True,1762782771.065469
+react-pdf @react-pdf/renderer Cloudflare Workers Swedish characters invoice template,tavily,10,27,1.5008528232574463,True,1762782771.732866
+react-pdf @react-pdf/renderer Cloudflare Workers Swedish characters invoice template,valyu,10,180,1.5219900608062744,True,1762782771.75867
+react-pdf @react-pdf/renderer Cloudflare Workers Swedish characters invoice template,parallel_oneshot,10,4645,2.2814290523529053,True,1762782772.520289
+react-pdf @react-pdf/renderer Cloudflare Workers Swedish characters invoice template,parallel_agentic,10,2971,6.38008189201355,True,1762782776.6215549
+react-pdf @react-pdf/renderer Cloudflare Workers Swedish characters invoice template,exa,0,0,9.15836501121521,True,1762782779.390715
+react-pdf @react-pdf/renderer Cloudflare Workers Swedish characters invoice template,linkup_standard,30,326,10.02362585067749,True,1762782780.2506912
+react-pdf @react-pdf/renderer Cloudflare Workers Swedish characters invoice template,linkup_deep,30,398,22.359561920166016,True,1762782792.590233
+react-pdf @react-pdf/renderer Cloudflare Workers Swedish characters invoice template,perplexity,0,0,0.0,False,1762782800.2445161
+jsPDF Cloudflare Workers Swedish characters internationalization fonts 2024,you,10,138,0.7564809322357178,True,1762782801.512682
+jsPDF Cloudflare Workers Swedish characters internationalization fonts 2024,tavily,10,24,1.5973880290985107,True,1762782802.355039
+jsPDF Cloudflare Workers Swedish characters internationalization fonts 2024,valyu,10,192,1.742704153060913,True,1762782802.5005069
+jsPDF Cloudflare Workers Swedish characters internationalization fonts 2024,parallel_oneshot,10,5484,3.277531862258911,True,1762782804.0373912
+jsPDF Cloudflare Workers Swedish characters internationalization fonts 2024,parallel_agentic,10,5281,6.082511901855469,True,1762782806.84413
+jsPDF Cloudflare Workers Swedish characters internationalization fonts 2024,exa,0,0,9.676304817199707,True,1762782810.432526
+jsPDF Cloudflare Workers Swedish characters internationalization fonts 2024,linkup_standard,30,293,10.71290922164917,True,1762782811.465736
+jsPDF Cloudflare Workers Swedish characters internationalization fonts 2024,perplexity,17,636,17.7824969291687,True,1762782818.536649
+jsPDF Cloudflare Workers Swedish characters internationalization fonts 2024,linkup_deep,30,355,19.09199571609497,True,1762782819.844487
+pdfkit Cloudflare Workers example invoice generation,you,10,141,0.7337021827697754,True,1762782821.089674
+pdfkit Cloudflare Workers example invoice generation,valyu,10,188,1.6127591133117676,True,1762782821.9706619
+pdfkit Cloudflare Workers example invoice generation,tavily,10,38,1.6139299869537354,True,1762782821.972914
+pdfkit Cloudflare Workers example invoice generation,parallel_oneshot,10,6942,2.1548516750335693,True,1762782822.515448
+pdfkit Cloudflare Workers example invoice generation,parallel_agentic,10,5045,6.041481256484985,True,1762782826.403559
+pdfkit Cloudflare Workers example invoice generation,linkup_standard,29,221,6.9706737995147705,True,1762782827.323342
+pdfkit Cloudflare Workers example invoice generation,exa,0,0,14.299828290939331,True,1762782834.654526
+pdfkit Cloudflare Workers example invoice generation,perplexity,16,538,16.75802493095398,True,1762782837.1138198
+pdfkit Cloudflare Workers example invoice generation,linkup_deep,29,310,17.41559100151062,True,1762782837.768846
+Cloudflare Browser Rendering API PDF generation invoice examples,you,10,156,0.7379021644592285,True,1762782839.020562
+Cloudflare Browser Rendering API PDF generation invoice examples,tavily,10,28,1.2556178569793701,True,1762782839.539037
+Cloudflare Browser Rendering API PDF generation invoice examples,valyu,10,186,1.3341867923736572,True,1762782839.6199481
+Cloudflare Browser Rendering API PDF generation invoice examples,parallel_oneshot,10,3122,2.694704294204712,True,1762782840.9845278
+Cloudflare Browser Rendering API PDF generation invoice examples,parallel_agentic,10,2167,5.503943920135498,True,1762782843.796101
+Cloudflare Browser Rendering API PDF generation invoice examples,perplexity,12,473,9.956155061721802,True,1762782848.236237
+Cloudflare Browser Rendering API PDF generation invoice examples,exa,0,0,12.517147779464722,True,1762782850.799094
+Cloudflare Browser Rendering API PDF generation invoice examples,linkup_standard,30,343,12.522058963775635,True,1762782850.7995222
+Cloudflare Browser Rendering API PDF generation invoice examples,linkup_deep,0,0,0.0,False,1762782868.310583
+pdf-lib Cloudflare Workers Swedish characters UTF-8 font support,you,10,153,0.8178081512451172,True,1762782869.6430569
+pdf-lib Cloudflare Workers Swedish characters UTF-8 font support,tavily,10,28,1.6369798183441162,True,1762782870.461623
+pdf-lib Cloudflare Workers Swedish characters UTF-8 font support,valyu,10,229,1.6380352973937988,True,1762782870.4633322
+pdf-lib Cloudflare Workers Swedish characters UTF-8 font support,parallel_oneshot,10,5191,3.27496600151062,True,1762782872.10393
+pdf-lib Cloudflare Workers Swedish characters UTF-8 font support,exa,0,0,9.532365798950195,True,1762782878.3562
+pdf-lib Cloudflare Workers Swedish characters UTF-8 font support,linkup_standard,30,234,9.56124496459961,True,1762782878.380314
+pdf-lib Cloudflare Workers Swedish characters UTF-8 font support,perplexity,15,453,16.955180883407593,True,1762782885.776993
+pdf-lib Cloudflare Workers Swedish characters UTF-8 font support,parallel_agentic,10,260,20.102633953094482,True,1762782888.932517
+pdf-lib Cloudflare Workers Swedish characters UTF-8 font support,linkup_deep,30,232,25.944904804229736,True,1762782894.764928
+How to generate PDF invoices in a Cloudflare Worker environment? Looking for libraries that work with Cloudflare Workers runtime and can handle Swedish characters and formatting.,you,10,62,0.7857091426849365,True,1762782896.063283
+How to generate PDF invoices in a Cloudflare Worker environment? Looking for libraries that work with Cloudflare Workers runtime and can handle Swedish characters and formatting.,valyu,10,128,1.26094388961792,True,1762782896.541965
+How to generate PDF invoices in a Cloudflare Worker environment? Looking for libraries that work with Cloudflare Workers runtime and can handle Swedish characters and formatting.,parallel_oneshot,10,5224,2.3162710666656494,True,1762782897.600225
+How to generate PDF invoices in a Cloudflare Worker environment? Looking for libraries that work with Cloudflare Workers runtime and can handle Swedish characters and formatting.,tavily,10,37,2.361849784851074,True,1762782897.641243
+How to generate PDF invoices in a Cloudflare Worker environment? Looking for libraries that work with Cloudflare Workers runtime and can handle Swedish characters and formatting.,parallel_agentic,10,1807,7.12842321395874,True,1762782902.413141
+How to generate PDF invoices in a Cloudflare Worker environment? Looking for libraries that work with Cloudflare Workers runtime and can handle Swedish characters and formatting.,exa,0,0,10.0035080909729,True,1762782905.281709
+How to generate PDF invoices in a Cloudflare Worker environment? Looking for libraries that work with Cloudflare Workers runtime and can handle Swedish characters and formatting.,linkup_standard,30,391,10.58458399772644,True,1762782905.857333
+How to generate PDF invoices in a Cloudflare Worker environment? Looking for libraries that work with Cloudflare Workers runtime and can handle Swedish characters and formatting.,perplexity,11,660,13.477243900299072,True,1762782908.7527292
+How to generate PDF invoices in a Cloudflare Worker environment? Looking for libraries that work with Cloudflare Workers runtime and can handle Swedish characters and formatting.,linkup_deep,30,368,20.81704592704773,True,1762782916.089727

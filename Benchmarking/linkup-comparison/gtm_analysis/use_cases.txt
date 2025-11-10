@@ -1,0 +1,36 @@
+=== USE CASE ANALYSIS ===
+
+
+QUANTITATIVE_QUERIES:
+----------------------------------------
+  • how many locations does optum have in california? -> Winner: parallel_agentic
+  • How many providers does First Coast Cardiovascular Institute have? -> Winner: parallel_oneshot
+  • How many locations does optum have in california? -> Winner: valyu
+  • Find best practices for Swedish invoice formatting requirements including OCR numbers, date formats, VAT display (moms), and reverse charge taxation (omvänd beskattningsskyldighet) -> Winner: linkup_deep
+  • What is JPYC stablecoin? How does it work technically? What blockchain does it use? How can developers integrate JPYC into applications for payment processing and accounting? -> Winner: linkup_deep
+
+LOCATION_QUERIES:
+----------------------------------------
+  • how many locations does optum have in california? -> Winner: parallel_agentic
+  • How many locations does optum have in california? -> Winner: valyu
+
+COMPARISON_QUERIES:
+----------------------------------------
+
+FACTUAL_QUERIES:
+----------------------------------------
+  • how many locations does optum have in california? -> Winner: parallel_agentic
+  • How many providers does First Coast Cardiovascular Institute have? -> Winner: parallel_oneshot
+  • How much Optum makes in revenue? -> Winner: parallel_oneshot
+  • How many locations does optum have in california? -> Winner: valyu
+
+COMPLEX_QUERIES:
+----------------------------------------
+  • web research pricing rates per hour deliverables 'web research services' pricing 'freelance' 'hourly rate' 2024 2025 -> Winner: valyu
+  • Snowflake Summit 2025 video YouTube 'Snowflake Summit 2025' 'Cortex AISQL' 'Snowflake' video 'earnings call' 'Snowflake earnings call 2025' YouTube -> Winner: tavily
+  • Snowflake stock price SNOW latest quote market cap revenue EPS guidance Q2 2025 earnings results financial data balance sheet income statement key metrics -> Winner: you
+  • Snowflake YouTube videos earnings call Snowflake keynote demo 2025 Snowflake Inc video recordings Snowflake Summit 2025 -> Winner: you
+  • Find best practices for Swedish invoice formatting requirements including OCR numbers, date formats, VAT display (moms), and reverse charge taxation (omvänd beskattningsskyldighet) -> Winner: linkup_deep
+  • How to fix 'Accelerator.unwrap_model() got an unexpected keyword argument keep_torch_compile' error with latest transformers and accelerate versions? What's the correct way to make them compatible? -> Winner: linkup_deep
+  • What is JPYC stablecoin? How does it work technically? What blockchain does it use? How can developers integrate JPYC into applications for payment processing and accounting? -> Winner: linkup_deep
+  • How to generate PDF invoices in a Cloudflare Worker environment? Looking for libraries that work with Cloudflare Workers runtime and can handle Swedish characters and formatting. -> Winner: linkup_standard
