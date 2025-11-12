@@ -1,0 +1,1639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare Linkup - API Comparison</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-cream: #F5F3EF;
+            --bg-white: #FFFFFF;
+            --bg-sidebar: #E8E5DF;
+            --border-color: #D4CFC4;
+            --text-primary: #1A1A1A;
+            --text-secondary: #6B6B6B;
+            --accent-green: #2D5F4C;
+            --accent-green-hover: #234A3B;
+            --badge-bg: #5A5A5A;
+            --card-hover: #FAFAF8;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg-cream);
+            color: var(--text-primary);
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 230px;
+            background: var(--bg-sidebar);
+            padding: 24px 16px;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding: 0 8px;
+        }
+
+        .logo img {
+            height: 24px;
+            width: auto;
+        }
+
+        .logo svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            margin-bottom: 4px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 14px;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .nav-item:hover {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-item.active {
+            background: var(--bg-white);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-item svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .nav-divider {
+            height: 1px;
+            background: var(--border-color);
+            margin: 16px 0;
+        }
+
+        .book-demo-btn {
+            background: var(--accent-green);
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            justify-content: center;
+            transition: all 0.2s;
+            margin-top: auto;
+            margin-bottom: 16px;
+        }
+
+        .book-demo-btn:hover {
+            background: var(--accent-green-hover);
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 16px;
+        }
+
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--accent-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .user-details {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .user-name {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .user-email {
+            font-size: 11px;
+            color: var(--text-secondary);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .header {
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 40px;
+        }
+
+        .header-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .header-subtitle {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .header-subtitle a {
+            color: var(--text-primary);
+            text-decoration: underline;
+        }
+
+        .content {
+            padding: 40px;
+            max-width: 1400px;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* API Cards Grid */
+        .api-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .api-card {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .api-card:hover {
+            background: var(--card-hover);
+            border-color: #A8A39A;
+            transform: translateY(-2px);
+        }
+
+        .api-card.selected {
+            border-color: var(--accent-green);
+            background: rgba(45, 95, 76, 0.03);
+        }
+
+        .api-card.selected::after {
+            content: '✓';
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 24px;
+            height: 24px;
+            background: var(--accent-green);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .api-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .api-logo {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .api-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .api-badge {
+            background: var(--badge-bg);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .api-name {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .api-description {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .api-pricing {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 12px;
+            padding: 6px 10px;
+            background: var(--bg-cream);
+            border-radius: 6px;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        /* Section */
+        .section {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        /* File Upload */
+        .file-upload-area {
+            border: 2px dashed var(--border-color);
+            border-radius: 12px;
+            padding: 48px 24px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: var(--bg-cream);
+        }
+
+        .file-upload-area:hover {
+            border-color: #A8A39A;
+            background: var(--card-hover);
+        }
+
+        .upload-icon {
+            font-size: 36px;
+            margin-bottom: 12px;
+            opacity: 0.6;
+        }
+
+        .upload-text {
+            font-size: 14px;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .upload-subtext {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 24px 0;
+            color: var(--text-secondary);
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border-color);
+        }
+
+        .divider::before {
+            margin-right: 16px;
+        }
+
+        .divider::after {
+            margin-left: 16px;
+        }
+
+        /* Industry Grid */
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+        }
+
+        .industry-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .industry-card:hover {
+            background: var(--card-hover);
+            border-color: #A8A39A;
+        }
+
+        .industry-card.selected {
+            border-color: var(--accent-green);
+            background: rgba(45, 95, 76, 0.03);
+        }
+
+        .industry-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .industry-name {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        /* Buttons */
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            flex: 1;
+        }
+
+        .btn-primary {
+            background: var(--accent-green);
+            color: white;
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            background: var(--accent-green-hover);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-cream);
+        }
+
+        /* Results */
+        .result-item {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .result-query {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .response-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+        }
+
+        .response-card {
+            background: var(--bg-cream);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .response-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .response-api-name {
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .response-api-logo {
+            width: 20px;
+            height: 20px;
+        }
+
+        .response-time {
+            font-size: 11px;
+            color: var(--text-secondary);
+            background: var(--bg-white);
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .response-content {
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--text-primary);
+            max-height: 400px;
+            overflow-y: auto;
+            margin-bottom: 16px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .response-content p {
+            margin-bottom: 12px;
+        }
+
+        .view-sources-btn {
+            background: transparent;
+            color: var(--accent-green);
+            border: 1px solid var(--accent-green);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .view-sources-btn:hover {
+            background: var(--accent-green);
+            color: white;
+        }
+
+        .view-sources-btn svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        /* Modal for sources */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.2s;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 32px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            animation: slideUp 0.3s;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .modal-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .modal-close {
+            background: transparent;
+            border: none;
+            font-size: 24px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .modal-close:hover {
+            background: var(--bg-cream);
+            color: var(--text-primary);
+        }
+
+        .source-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .source-list-item {
+            padding: 16px;
+            margin-bottom: 12px;
+            background: var(--bg-cream);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .source-list-item:hover {
+            background: var(--card-hover);
+            border-color: #A8A39A;
+        }
+
+        .source-list-item a {
+            color: var(--accent-green);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .source-list-item a:hover {
+            text-decoration: underline;
+        }
+
+        .source-url {
+            font-size: 12px;
+            color: var(--text-secondary);
+            word-break: break-all;
+        }
+
+        .error-message {
+            color: #C84630;
+            font-size: 13px;
+            font-style: italic;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .spinner {
+            border: 3px solid var(--border-color);
+            border-top: 3px solid var(--accent-green);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .alert {
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            font-size: 13px;
+        }
+
+        .alert-success {
+            background: rgba(45, 95, 76, 0.1);
+            color: var(--accent-green);
+            border: 1px solid rgba(45, 95, 76, 0.2);
+        }
+
+        .alert-info {
+            background: rgba(107, 107, 107, 0.1);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+
+        /* Progress Steps */
+        .progress-steps {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 32px;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .step.active {
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+
+        .step.completed {
+            color: var(--text-primary);
+        }
+
+        .step-divider {
+            width: 20px;
+            height: 1px;
+            background: var(--border-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="/static/linkup-logo.png" alt="Linkup">
+        </div>
+
+        <div class="nav-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            </svg>
+            Home
+        </div>
+
+        <div class="nav-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+            API keys
+        </div>
+
+        <div class="nav-item active">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="5 3 19 12 5 21 5 3"/>
+            </svg>
+            Compare Linkup
+        </div>
+
+        <div class="nav-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+            Use Cases
+        </div>
+
+        <div class="nav-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+            </svg>
+            Documentation
+        </div>
+
+        <div class="nav-divider"></div>
+
+        <div class="nav-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+            </svg>
+            Members
+        </div>
+
+        <div class="nav-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7"/>
+                <rect x="14" y="3" width="7" height="7"/>
+                <rect x="14" y="14" width="7" height="7"/>
+                <rect x="3" y="14" width="7" height="7"/>
+            </svg>
+            Billing
+        </div>
+
+        <div class="nav-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M12 1v6m0 6v6m4.22-13.22l-4.24 4.24m0 5.96l-4.24 4.24m9.9-14.14l-4.24 4.24m0 5.96l4.24 4.24"/>
+            </svg>
+            Settings
+        </div>
+
+        <button class="book-demo-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="8.5" cy="7" r="4"/>
+                <polyline points="17 11 19 13 23 9"/>
+            </svg>
+            Book a demo
+        </button>
+
+        <div class="user-info">
+            <div class="user-avatar">SJ</div>
+            <div class="user-details">
+                <div class="user-name">Shaurya Jain</div>
+                <div class="user-email">sj3915@nyu.edu</div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="header">
+            <div class="header-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px">
+                    <polygon points="5 3 19 12 5 21 5 3"/>
+                </svg>
+                Compare Linkup
+            </div>
+            <div class="header-subtitle">
+                Compare Linkup to its competitors side-by-side. <a href="#">Read our documentation →</a>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- Page 1: Select APIs -->
+            <div class="page active" id="page1">
+                <div class="progress-steps">
+                    <div class="step active">
+                        <strong>1.</strong> Select APIs
+                    </div>
+                    <div class="step-divider"></div>
+                    <div class="step">
+                        <strong>2.</strong> Add queries
+                    </div>
+                    <div class="step-divider"></div>
+                    <div class="step">
+                        <strong>3.</strong> View results
+                    </div>
+                </div>
+
+                <div class="api-grid" id="api-grid">
+                    <div class="api-card" data-model="linkup_standard">
+                        <div class="api-header">
+                            <div class="api-logo">
+                                <img src="/static/linkup-logo.png" alt="Linkup">
+                            </div>
+                            <span class="api-badge">POST</span>
+                        </div>
+                        <div class="api-name">/search</div>
+                        <div class="api-description">Search for information on the web</div>
+                        <div class="api-pricing">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                            0.005€ - 0.05€
+                        </div>
+                    </div>
+
+                    <div class="api-card" data-model="linkup_deep">
+                        <div class="api-header">
+                            <div class="api-logo">
+                                <img src="/static/linkup-logo.png" alt="Linkup">
+                            </div>
+                            <span class="api-badge">POST</span>
+                        </div>
+                        <div class="api-name">/search</div>
+                        <div class="api-description">Most exhaustive search with deep analysis</div>
+                        <div class="api-pricing">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                            0.01€ - 0.1€
+                        </div>
+                    </div>
+
+                    <div class="api-card" data-model="perplexity">
+                        <div class="api-header">
+                            <div class="api-logo">
+                                <img src="/static/perplexity-logo.png" alt="Perplexity">
+                            </div>
+                            <span class="api-badge">API</span>
+                        </div>
+                        <div class="api-name">Perplexity</div>
+                        <div class="api-description">AI-powered search with natural language understanding</div>
+                        <div class="api-pricing">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px">
+                                <path d="M12 2v20M2 12h20"/>
+                            </svg>
+                            Competitor
+                        </div>
+                    </div>
+
+                    <div class="api-card" data-model="exa">
+                        <div class="api-header">
+                            <div class="api-logo">
+                                <img src="/static/exa-logo.jpg" alt="Exa">
+                            </div>
+                            <span class="api-badge">API</span>
+                        </div>
+                        <div class="api-name">Exa</div>
+                        <div class="api-description">Neural and keyword search with rich content</div>
+                        <div class="api-pricing">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px">
+                                <path d="M12 2v20M2 12h20"/>
+                            </svg>
+                            Competitor
+                        </div>
+                    </div>
+
+                    <div class="api-card" data-model="you">
+                        <div class="api-header">
+                            <div class="api-logo">
+                                <img src="/static/you-logo.png" alt="You.com">
+                            </div>
+                            <span class="api-badge">API</span>
+                        </div>
+                        <div class="api-name">You.com</div>
+                        <div class="api-description">AI-powered search with web results</div>
+                        <div class="api-pricing">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px">
+                                <path d="M12 2v20M2 12h20"/>
+                            </svg>
+                            Competitor
+                        </div>
+                    </div>
+
+                    <div class="api-card" data-model="tavily">
+                        <div class="api-header">
+                            <div class="api-logo">
+                                <img src="/static/tavily-logo.svg" alt="Tavily">
+                            </div>
+                            <span class="api-badge">API</span>
+                        </div>
+                        <div class="api-name">Tavily</div>
+                        <div class="api-description">Search engine optimized for LLMs and AI agents</div>
+                        <div class="api-pricing">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px">
+                                <path d="M12 2v20M2 12h20"/>
+                            </svg>
+                            Competitor
+                        </div>
+                    </div>
+
+                    <div class="api-card" data-model="valyu">
+                        <div class="api-header">
+                            <div class="api-logo">
+                                <img src="/static/valyu-logo.svg" alt="Valyu">
+                            </div>
+                            <span class="api-badge">API</span>
+                        </div>
+                        <div class="api-name">Valyu DeepSearch</div>
+                        <div class="api-description">Deep search for web, research, and proprietary datasets</div>
+                        <div class="api-pricing">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px">
+                                <path d="M12 2v20M2 12h20"/>
+                            </svg>
+                            Competitor
+                        </div>
+                    </div>
+
+                    <div class="api-card" data-model="brave">
+                        <div class="api-header">
+                            <div class="api-logo">
+                                <img src="/static/brave-logo.svg" alt="Brave">
+                            </div>
+                            <span class="api-badge">API</span>
+                        </div>
+                        <div class="api-name">Brave AI Grounding</div>
+                        <div class="api-description">AI answers backed by verifiable sources on the web</div>
+                        <div class="api-pricing">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px">
+                                <path d="M12 2v20M2 12h20"/>
+                            </svg>
+                            Competitor
+                        </div>
+                    </div>
+
+                    <div class="api-card" data-model="parallel_oneshot">
+                        <div class="api-header">
+                            <div class="api-logo">
+                                <img src="/static/parallel-logo.png" alt="Parallel">
+                            </div>
+                            <span class="api-badge">API</span>
+                        </div>
+                        <div class="api-name">Parallel One-Shot</div>
+                        <div class="api-description">Comprehensive results with longer excerpts for single responses</div>
+                        <div class="api-pricing">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px">
+                                <path d="M12 2v20M2 12h20"/>
+                            </svg>
+                            Competitor
+                        </div>
+                    </div>
+
+                    <div class="api-card" data-model="parallel_agentic">
+                        <div class="api-header">
+                            <div class="api-logo">
+                                <img src="/static/parallel-logo.png" alt="Parallel">
+                            </div>
+                            <span class="api-badge">API</span>
+                        </div>
+                        <div class="api-name">Parallel Agentic</div>
+                        <div class="api-description">Concise, token-efficient results optimized for agentic loops</div>
+                        <div class="api-pricing">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px">
+                                <path d="M12 2v20M2 12h20"/>
+                            </svg>
+                            Competitor
+                        </div>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-secondary" id="run-test-query" disabled>🧪 Run Test Query</button>
+                    <button class="btn btn-primary" id="next-to-page2" disabled>Continue to queries →</button>
+                </div>
+            </div>
+
+            <!-- Page 2: Add Queries -->
+            <div class="page" id="page2">
+                <div class="progress-steps">
+                    <div class="step completed">
+                        <strong>1.</strong> Select APIs
+                    </div>
+                    <div class="step-divider"></div>
+                    <div class="step active">
+                        <strong>2.</strong> Add queries
+                    </div>
+                    <div class="step-divider"></div>
+                    <div class="step">
+                        <strong>3.</strong> View results
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">Upload query file</div>
+                    <div class="file-upload-area" id="file-upload-area">
+                        <div class="upload-icon">📄</div>
+                        <div class="upload-text">Drop your file here or click to browse</div>
+                        <div class="upload-subtext">Supports .txt, .csv files (one query per line)</div>
+                    </div>
+                    <input type="file" id="file-input" accept=".txt,.csv" style="display: none;">
+                    <div id="file-status" style="display: none; margin-top: 12px;"></div>
+                </div>
+
+                <div class="divider">OR</div>
+
+                <div class="section">
+                    <div class="section-title">Enter a custom query</div>
+                    <div style="display: flex; gap: 12px; align-items: flex-start;">
+                        <textarea
+                            id="custom-query-input"
+                            placeholder="Type your query here..."
+                            style="flex: 1; padding: 12px; border: 1px solid var(--border-color); border-radius: 8px; font-family: inherit; font-size: 14px; min-height: 80px; resize: vertical;"
+                        ></textarea>
+                        <button class="btn btn-primary" id="add-custom-query" style="white-space: nowrap;">Add Query</button>
+                    </div>
+                    <div id="custom-query-status" style="margin-top: 8px; font-size: 13px; color: var(--text-secondary);"></div>
+                </div>
+
+                <div class="divider">OR</div>
+
+                <div class="section">
+                    <div class="section-title">Select industry for sample queries</div>
+                    <div class="industry-grid" id="industry-grid">
+                        <div class="industry-card" data-industry="finance">
+                            <div class="industry-icon">💰</div>
+                            <div class="industry-name">Finance</div>
+                        </div>
+                        <div class="industry-card" data-industry="technology">
+                            <div class="industry-icon">💻</div>
+                            <div class="industry-name">Technology</div>
+                        </div>
+                        <div class="industry-card" data-industry="healthcare">
+                            <div class="industry-icon">🏥</div>
+                            <div class="industry-name">Healthcare</div>
+                        </div>
+                        <div class="industry-card" data-industry="education">
+                            <div class="industry-icon">📚</div>
+                            <div class="industry-name">Education</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-secondary" id="back-to-page1">← Back</button>
+                    <button class="btn btn-primary" id="start-comparison" disabled>Start comparison</button>
+                </div>
+            </div>
+
+            <!-- Page 3: Results -->
+            <div class="page" id="page3">
+                <div class="progress-steps">
+                    <div class="step completed">
+                        <strong>1.</strong> Select APIs
+                    </div>
+                    <div class="step-divider"></div>
+                    <div class="step completed">
+                        <strong>2.</strong> Add queries
+                    </div>
+                    <div class="step-divider"></div>
+                    <div class="step active">
+                        <strong>3.</strong> View results
+                    </div>
+                </div>
+
+                <div id="loading" class="loading" style="display: none;">
+                    <div class="spinner"></div>
+                    <div style="color: var(--text-secondary);">Running comparisons...</div>
+                </div>
+
+                <div id="results-container"></div>
+
+                <div class="button-group">
+                    <button class="btn btn-secondary" id="back-to-page2">← Back</button>
+                    <button class="btn btn-primary" id="start-new">Start new comparison</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Sources Modal -->
+    <div id="sources-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title" id="modal-api-name">Sources</div>
+                <button class="modal-close" onclick="closeSourcesModal()">&times;</button>
+            </div>
+            <ul class="source-list" id="modal-sources-list"></ul>
+        </div>
+    </div>
+
+    <script>
+        // State management
+        let selectedModels = [];
+        let queries = [];
+        let currentPage = 1;
+
+        // Industry sample queries
+        const industryQueries = {
+            finance: [
+                "What is the current price of Bitcoin?",
+                "Explain the Federal Reserve's recent interest rate decision",
+                "What are the best investment strategies for 2025?",
+                "How does inflation affect stock market performance?",
+                "Compare major cryptocurrency exchanges"
+            ],
+            technology: [
+                "What are the latest AI developments?",
+                "Explain how transformer models work",
+                "Compare React vs Vue.js for web development",
+                "What is the future of quantum computing?",
+                "Best practices for cloud security"
+            ],
+            healthcare: [
+                "What are the symptoms of influenza?",
+                "Latest COVID-19 vaccine information",
+                "How does CRISPR gene editing work?",
+                "Compare telemedicine platforms",
+                "What are the benefits of preventive healthcare?"
+            ],
+            education: [
+                "Best online learning platforms for programming",
+                "How has remote learning changed education?",
+                "What is project-based learning?",
+                "Compare MOOCs vs traditional education",
+                "Future trends in educational technology"
+            ]
+        };
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            setupModelSelection();
+            setupFileUpload();
+            setupCustomQueryInput();
+            setupIndustrySelection();
+            setupNavigation();
+        });
+
+        // Model selection
+        function setupModelSelection() {
+            const modelCards = document.querySelectorAll('.api-card');
+            const nextButton = document.getElementById('next-to-page2');
+            const testButton = document.getElementById('run-test-query');
+
+            modelCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const model = this.dataset.model;
+
+                    if (this.classList.contains('selected')) {
+                        this.classList.remove('selected');
+                        selectedModels = selectedModels.filter(m => m !== model);
+                    } else {
+                        this.classList.add('selected');
+                        selectedModels.push(model);
+                    }
+
+                    const hasSelection = selectedModels.length > 0;
+                    nextButton.disabled = !hasSelection;
+                    testButton.disabled = !hasSelection;
+                });
+            });
+        }
+
+        // File upload
+        function setupFileUpload() {
+            const uploadArea = document.getElementById('file-upload-area');
+            const fileInput = document.getElementById('file-input');
+            const fileStatus = document.getElementById('file-status');
+            const startButton = document.getElementById('start-comparison');
+
+            uploadArea.addEventListener('click', () => fileInput.click());
+
+            uploadArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+            });
+
+            uploadArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                const file = e.dataTransfer.files[0];
+                handleFile(file);
+            });
+
+            fileInput.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                handleFile(file);
+            });
+
+            function handleFile(file) {
+                if (!file) return;
+
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const content = e.target.result;
+                    queries = content.split('\n')
+                        .map(q => q.trim())
+                        .filter(q => q.length > 0);
+
+                    if (queries.length > 0) {
+                        fileStatus.innerHTML = `<div class="alert alert-success">✓ Loaded ${queries.length} queries from ${file.name}</div>`;
+                        fileStatus.style.display = 'block';
+                        startButton.disabled = false;
+
+                        document.querySelectorAll('.industry-card').forEach(card => {
+                            card.classList.remove('selected');
+                        });
+                    } else {
+                        fileStatus.innerHTML = `<div class="alert alert-info">⚠ No queries found in the file</div>`;
+                        fileStatus.style.display = 'block';
+                    }
+                };
+                reader.readAsText(file);
+            }
+        }
+
+        // Industry selection
+        function setupIndustrySelection() {
+            const industryCards = document.querySelectorAll('.industry-card');
+            const startButton = document.getElementById('start-comparison');
+            const fileStatus = document.getElementById('file-status');
+
+            industryCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    industryCards.forEach(c => c.classList.remove('selected'));
+                    this.classList.add('selected');
+
+                    const industry = this.dataset.industry;
+                    queries = industryQueries[industry];
+
+                    document.getElementById('file-input').value = '';
+                    fileStatus.innerHTML = `<div class="alert alert-success">✓ Loaded ${queries.length} sample queries for ${industry}</div>`;
+                    fileStatus.style.display = 'block';
+
+                    startButton.disabled = false;
+                });
+            });
+        }
+
+        // Custom query input
+        function setupCustomQueryInput() {
+            const customQueryInput = document.getElementById('custom-query-input');
+            const addCustomQueryBtn = document.getElementById('add-custom-query');
+            const customQueryStatus = document.getElementById('custom-query-status');
+            const startButton = document.getElementById('start-comparison');
+            const fileStatus = document.getElementById('file-status');
+
+            addCustomQueryBtn.addEventListener('click', function() {
+                const queryText = customQueryInput.value.trim();
+
+                if (!queryText) {
+                    customQueryStatus.innerHTML = '<span style="color: #d32f2f;">⚠ Please enter a query</span>';
+                    return;
+                }
+
+                // Set queries to the custom query
+                queries = [queryText];
+
+                // Clear file input and deselect industry cards
+                document.getElementById('file-input').value = '';
+                document.querySelectorAll('.industry-card').forEach(card => {
+                    card.classList.remove('selected');
+                });
+
+                // Show success message
+                customQueryStatus.innerHTML = '<span style="color: #2D5F4C;">✓ Query added successfully</span>';
+                fileStatus.innerHTML = '<div class="alert alert-success">✓ Custom query ready to run</div>';
+                fileStatus.style.display = 'block';
+
+                // Enable start button
+                startButton.disabled = false;
+
+                // Clear the textarea after adding
+                customQueryInput.value = '';
+
+                // Clear status message after 3 seconds
+                setTimeout(() => {
+                    customQueryStatus.innerHTML = '';
+                }, 3000);
+            });
+
+            // Also allow Enter key (with Shift for new line)
+            customQueryInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    addCustomQueryBtn.click();
+                }
+            });
+        }
+
+        // Navigation
+        function setupNavigation() {
+            document.getElementById('run-test-query').addEventListener('click', runTestQuery);
+            document.getElementById('next-to-page2').addEventListener('click', () => goToPage(2));
+            document.getElementById('back-to-page1').addEventListener('click', () => goToPage(1));
+            document.getElementById('start-comparison').addEventListener('click', startComparison);
+            document.getElementById('back-to-page2').addEventListener('click', () => goToPage(2));
+            document.getElementById('start-new').addEventListener('click', () => {
+                selectedModels = [];
+                queries = [];
+                document.querySelectorAll('.api-card').forEach(card => card.classList.remove('selected'));
+                document.querySelectorAll('.industry-card').forEach(card => card.classList.remove('selected'));
+                document.getElementById('file-input').value = '';
+                document.getElementById('file-status').style.display = 'none';
+                document.getElementById('results-container').innerHTML = '';
+                goToPage(1);
+            });
+        }
+
+        function goToPage(pageNum) {
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            document.getElementById(`page${pageNum}`).classList.add('active');
+            currentPage = pageNum;
+            window.scrollTo(0, 0);
+        }
+
+        async function runTestQuery() {
+            const testQuery = "What is the current price of Bitcoin?";
+
+            // Navigate to page 3 (results)
+            goToPage(3);
+
+            const loadingDiv = document.getElementById('loading');
+            const resultsContainer = document.getElementById('results-container');
+
+            loadingDiv.style.display = 'block';
+            resultsContainer.innerHTML = '';
+
+            try {
+                const response = await fetch('/api/compare', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        apis: selectedModels,
+                        queries: [testQuery]
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    displayResults(data.results);
+                } else {
+                    resultsContainer.innerHTML = `<div class="alert alert-info">Error: ${data.error}</div>`;
+                }
+            } catch (error) {
+                resultsContainer.innerHTML = `<div class="alert alert-info">Error: ${error.message}</div>`;
+            } finally {
+                loadingDiv.style.display = 'none';
+            }
+        }
+
+        async function startComparison() {
+            goToPage(3);
+
+            const loadingDiv = document.getElementById('loading');
+            const resultsContainer = document.getElementById('results-container');
+
+            loadingDiv.style.display = 'block';
+            resultsContainer.innerHTML = '';
+
+            try {
+                const response = await fetch('/api/compare', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        apis: selectedModels,
+                        queries: queries
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    displayResults(data.results);
+                } else {
+                    resultsContainer.innerHTML = `<div class="alert alert-info">Error: ${data.error}</div>`;
+                }
+            } catch (error) {
+                resultsContainer.innerHTML = `<div class="alert alert-info">Error: ${error.message}</div>`;
+            } finally {
+                loadingDiv.style.display = 'none';
+            }
+        }
+
+        function displayResults(results) {
+            const container = document.getElementById('results-container');
+
+            results.forEach(result => {
+                const resultHtml = `
+                    <div class="result-item">
+                        <div class="result-query">${escapeHtml(result.query)}</div>
+                        <div class="response-grid">
+                            ${result.responses.map(r => createResponseCard(r)).join('')}
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += resultHtml;
+            });
+        }
+
+        function createResponseCard(response) {
+            if (!response.success) {
+                return `
+                    <div class="response-card">
+                        <div class="response-header">
+                            <div class="response-api-name">${formatApiName(response.api_name)}</div>
+                        </div>
+                        <div class="error-message">Error: ${escapeHtml(response.error || 'Unknown error')}</div>
+                    </div>
+                `;
+            }
+
+            let content = '';
+            let sources = [];
+
+            // Extract content and sources based on API type
+            if (response.api_name.includes('linkup')) {
+                content = response.response_data.answer || 'No answer provided';
+                sources = response.response_data.sources || [];
+                console.log('Linkup raw answer:', content);
+                console.log('Linkup sources:', sources);
+            } else if (response.api_name === 'perplexity') {
+                content = response.response_data.answer || response.response_data.content || 'No answer provided';
+                sources = response.response_data.sources || [];
+                console.log('Perplexity raw answer:', content);
+            } else if (response.api_name === 'exa') {
+                content = response.response_data.answer || 'No answer provided';
+                sources = response.response_data.sources || [];
+                console.log('Exa raw answer:', content);
+            } else if (response.api_name === 'parallel_oneshot' || response.api_name === 'parallel_agentic') {
+                content = response.response_data.answer || response.response_data.content || 'No answer provided';
+                sources = response.response_data.sources || [];
+                console.log('Parallel raw answer:', content);
+            } else if (response.api_name === 'you') {
+                content = response.response_data.answer || 'No answer provided';
+                sources = response.response_data.sources || [];
+                console.log('You.com raw answer:', content);
+            } else if (response.api_name === 'tavily') {
+                content = response.response_data.answer || 'No answer provided';
+                sources = response.response_data.sources || [];
+                console.log('Tavily raw answer:', content);
+            } else if (response.api_name === 'valyu') {
+                content = response.response_data.answer || 'No answer provided';
+                sources = response.response_data.sources || [];
+                console.log('Valyu raw answer:', content);
+            } else if (response.api_name === 'brave') {
+                content = response.response_data.answer || 'No answer provided';
+                sources = response.response_data.sources || [];
+                console.log('Brave raw answer:', content);
+            }
+
+            // COMPLETELY REMOVE ALL CITATION MARKERS AND SOURCE REFERENCES
+            // Remove [1], [2], [3], etc.
+            content = content.replace(/\[\d+\]/g, '');
+            // Remove [1][2][3] style citations
+            content = content.replace(/(\[\d+\])+/g, '');
+            // Remove source URLs if they appear in text
+            content = content.replace(/https?:\/\/[^\s\)]+/g, '');
+            // Remove markdown links like [text](url)
+            content = content.replace(/\[([^\]]+)\]\([^\)]+\)/g, '$1');
+            // Clean up extra whitespace
+            content = content.replace(/\s+/g, ' ').trim();
+
+            const formattedContent = formatContent(content);
+
+            return `
+                <div class="response-card">
+                    <div class="response-header">
+                        <div class="response-api-name">${formatApiName(response.api_name)}</div>
+                        <div class="response-time">${response.response_time.toFixed(2)}s</div>
+                    </div>
+                    <div class="response-content">${formattedContent}</div>
+                </div>
+            `;
+        }
+
+        function formatContent(content) {
+            // Escape the content first to prevent XSS
+            const escaped = escapeHtml(content);
+
+            // Split content into paragraphs and format for better readability
+            const paragraphs = escaped.split(/\n\n+/);
+
+            // If we have multiple paragraphs, wrap them
+            if (paragraphs.length > 1) {
+                return paragraphs
+                    .map(p => p.trim())
+                    .filter(p => p.length > 0)
+                    .map(p => `<p>${p}</p>`)
+                    .join('');
+            }
+
+            // For single paragraph content, just return the escaped text
+            return escaped;
+        }
+
+        function showSources(sources, apiName) {
+            const modal = document.getElementById('sources-modal');
+            const modalApiName = document.getElementById('modal-api-name');
+            const sourcesList = document.getElementById('modal-sources-list');
+
+            modalApiName.textContent = `${apiName} - Sources`;
+
+            sourcesList.innerHTML = sources.map((source, index) => {
+                const title = source.title || source.name || `Source ${index + 1}`;
+                const url = source.url || '#';
+                return `
+                    <li class="source-list-item">
+                        <a href="${url}" target="_blank">${escapeHtml(title)}</a>
+                        <div class="source-url">${escapeHtml(url)}</div>
+                    </li>
+                `;
+            }).join('');
+
+            modal.classList.add('active');
+        }
+
+        function closeSourcesModal() {
+            const modal = document.getElementById('sources-modal');
+            modal.classList.remove('active');
+        }
+
+        // Close modal when clicking outside
+        document.addEventListener('click', function(event) {
+            const modal = document.getElementById('sources-modal');
+            if (event.target === modal) {
+                closeSourcesModal();
+            }
+        });
+
+        function formatApiName(apiName) {
+            const names = {
+                'linkup_standard': 'Linkup Standard',
+                'linkup_deep': 'Linkup Deep',
+                'perplexity': 'Perplexity',
+                'exa': 'Exa',
+                'you': 'You.com',
+                'tavily': 'Tavily',
+                'valyu': 'Valyu DeepSearch',
+                'parallel_oneshot': 'Parallel One-Shot',
+                'parallel_agentic': 'Parallel Agentic'
+            };
+            return names[apiName] || apiName;
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+    </script>
+</body>
+</html>
