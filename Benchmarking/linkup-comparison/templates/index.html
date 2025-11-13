@@ -421,13 +421,20 @@
 
         .query-input-footer {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
         }
 
         .query-hint {
             font-size: 12px;
             color: var(--text-secondary);
+            margin-right: auto;
+        }
+
+        #add-custom-query {
+            padding: 8px 16px;
+            font-size: 13px;
+            min-width: auto;
         }
 
         /* Industry Grid */
@@ -1067,7 +1074,7 @@
                     <div class="api-card" data-model="parallel_oneshot">
                         <div class="api-header">
                             <div class="api-logo">
-                                <img src="/static/parallel-logo.png" alt="Parallel">
+                                <img src="/static/parallel-logo.svg" alt="Parallel">
                             </div>
                             <span class="api-badge">API</span>
                         </div>
@@ -1084,7 +1091,7 @@
                     <div class="api-card" data-model="parallel_agentic">
                         <div class="api-header">
                             <div class="api-logo">
-                                <img src="/static/parallel-logo.png" alt="Parallel">
+                                <img src="/static/parallel-logo.svg" alt="Parallel">
                             </div>
                             <span class="api-badge">API</span>
                         </div>
