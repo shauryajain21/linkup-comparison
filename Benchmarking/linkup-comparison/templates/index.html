@@ -383,6 +383,53 @@
             margin-left: 16px;
         }
 
+        /* Custom Query Input */
+        .custom-query-area {
+            border: 2px dashed var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            background: var(--bg-cream);
+            transition: all 0.2s;
+        }
+
+        .custom-query-area:focus-within {
+            border-color: #A8A39A;
+            background: var(--card-hover);
+        }
+
+        .custom-query-textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 14px;
+            min-height: 100px;
+            resize: vertical;
+            margin-bottom: 12px;
+            transition: all 0.2s;
+        }
+
+        .custom-query-textarea:focus {
+            outline: none;
+            border-color: var(--accent-green);
+        }
+
+        .custom-query-textarea::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .query-input-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .query-hint {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
         /* Industry Grid */
         .industry-grid {
             display: grid;
@@ -1089,15 +1136,18 @@
 
                 <div class="section">
                     <div class="section-title">Enter a custom query</div>
-                    <div style="display: flex; gap: 12px; align-items: flex-start;">
+                    <div class="custom-query-area">
                         <textarea
                             id="custom-query-input"
-                            placeholder="Type your query here..."
-                            style="flex: 1; padding: 12px; border: 1px solid var(--border-color); border-radius: 8px; font-family: inherit; font-size: 14px; min-height: 80px; resize: vertical;"
+                            class="custom-query-textarea"
+                            placeholder="Type your search query here..."
                         ></textarea>
-                        <button class="btn btn-primary" id="add-custom-query" style="white-space: nowrap;">Add Query</button>
+                        <div class="query-input-footer">
+                            <div class="query-hint">Press Enter to submit, Shift+Enter for new line</div>
+                            <button class="btn btn-primary" id="add-custom-query">Add Query</button>
+                        </div>
                     </div>
-                    <div id="custom-query-status" style="margin-top: 8px; font-size: 13px; color: var(--text-secondary);"></div>
+                    <div id="custom-query-status" style="margin-top: 12px;"></div>
                 </div>
 
                 <div class="divider">OR</div>
