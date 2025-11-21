@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Benchmark Results - Linkup Comparison</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-cream: #F5F3EF;
+            --bg-white: #FFFFFF;
+            --bg-sidebar: #E8E5DF;
+            --border-color: #D4CFC4;
+            --text-primary: #1A1A1A;
+            --text-secondary: #6B6B6B;
+            --accent-blue: #2563EB;
+            --accent-green: #10B981;
+            --accent-red: #EF4444;
+            --linkup-color: #FF6B35;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--bg-cream);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 2rem;
+            min-height: calc(100vh - 100px);
+        }
+
+        .sidebar {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            height: fit-content;
+            position: sticky;
+            top: 120px;
+            border: 1px solid var(--border-color);
+        }
+
+        .sidebar h2 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+
+        .filter-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-section h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .filter-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .filter-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            padding: 0.4rem;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .filter-option:hover {
+            background: var(--bg-cream);
+        }
+
+        .filter-option input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        .filter-option label {
+            cursor: pointer;
+            font-size: 0.9rem;
+            flex: 1;
+        }
+
+        .stats-box {
+            background: var(--bg-cream);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+
+        .stats-box .stat {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        .stats-box .stat:last-child {
+            margin-bottom: 0;
+        }
+
+        .stats-box .stat-label {
+            color: var(--text-secondary);
+        }
+
+        .stats-box .stat-value {
+            font-weight: 600;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-secondary);
+        }
+
+        .query-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .query-item {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .query-item:hover {
+            border-color: var(--accent-blue);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .query-item.selected {
+            border-color: var(--linkup-color);
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.15);
+        }
+
+        .query-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 0.75rem;
+        }
+
+        .query-number {
+            background: var(--bg-cream);
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .query-text {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .query-stats {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .query-stat {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        .query-stat-label {
+            color: var(--text-secondary);
+        }
+
+        .query-stat-value {
+            font-weight: 600;
+        }
+
+        .success-badge {
+            color: var(--accent-green);
+        }
+
+        .failure-badge {
+            color: var(--accent-red);
+        }
+
+        .comparison-view {
+            background: var(--bg-white);
+            border: 2px solid var(--linkup-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .comparison-header {
+            margin-bottom: 2rem;
+        }
+
+        .comparison-header h2 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .comparison-query {
+            background: var(--bg-cream);
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+
+        .api-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .api-response {
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            background: var(--bg-white);
+        }
+
+        .api-response.linkup {
+            border: 2px solid var(--linkup-color);
+            background: #FFF8F5;
+        }
+
+        .api-response-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .api-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .api-name.linkup-name {
+            color: var(--linkup-color);
+        }
+
+        .api-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .status-dot.success {
+            background: var(--accent-green);
+        }
+
+        .status-dot.failure {
+            background: var(--accent-red);
+        }
+
+        .api-metrics {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .api-metric {
+            font-size: 0.85rem;
+        }
+
+        .api-metric-label {
+            color: var(--text-secondary);
+        }
+
+        .api-metric-value {
+            font-weight: 600;
+            margin-left: 0.25rem;
+        }
+
+        .api-answer {
+            background: var(--bg-cream);
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            max-height: 300px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .api-error {
+            background: #FEF2F2;
+            border: 1px solid #FCA5A5;
+            color: #991B1B;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-secondary);
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .pagination button {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border-color);
+            background: var(--bg-white);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .pagination button:hover:not(:disabled) {
+            background: var(--bg-cream);
+        }
+
+        .pagination button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .pagination span {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔍 Browse Benchmark Results</h1>
+        <p>Interactive comparison of Linkup vs competitors across 1,400 queries</p>
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <h2>Filter & Search</h2>
+
+            <input type="text"
+                   class="search-box"
+                   id="searchBox"
+                   placeholder="Search queries...">
+
+            <div class="filter-section">
+                <h3>Show Results</h3>
+                <div class="filter-options">
+                    <div class="filter-option">
+                        <input type="radio" name="results-filter" id="filter-all" value="all" checked>
+                        <label for="filter-all">All Queries</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" name="results-filter" id="filter-linkup-wins" value="linkup-wins">
+                        <label for="filter-linkup-wins">Linkup Outperforms</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" name="results-filter" id="filter-linkup-fails" value="linkup-fails">
+                        <label for="filter-linkup-fails">Linkup Underperforms</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" name="results-filter" id="filter-timeouts" value="timeouts">
+                        <label for="filter-timeouts">Timeouts Only</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>Compare Linkup Against</h3>
+                <div class="filter-options" id="apiFilters">
+                    <div class="filter-option">
+                        <input type="checkbox" id="api-perplexity" value="perplexity" checked>
+                        <label for="api-perplexity">Perplexity</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="api-exa" value="exa" checked>
+                        <label for="api-exa">Exa</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="api-you" value="you" checked>
+                        <label for="api-you">You.com</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="api-tavily" value="tavily" checked>
+                        <label for="api-tavily">Tavily</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="api-valyu" value="valyu" checked>
+                        <label for="api-valyu">Valyu</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-box" id="statsBox">
+                <div class="stat">
+                    <span class="stat-label">Total Queries:</span>
+                    <span class="stat-value">-</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Filtered:</span>
+                    <span class="stat-value">-</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Selected:</span>
+                    <span class="stat-value">None</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div id="comparisonView"></div>
+            <div id="loadingIndicator" class="loading">Loading benchmark results...</div>
+            <div id="queryList" class="query-list"></div>
+            <div id="pagination" class="pagination"></div>
+        </div>
+    </div>
+
+    <script>
+        let allQueries = [];
+        let filteredQueries = [];
+        let selectedQuery = null;
+        let currentPage = 1;
+        const queriesPerPage = 20;
+
+        const API_NAMES = {
+            'linkup_standard': 'Linkup Standard',
+            'linkup_deep': 'Linkup Deep',
+            'perplexity': 'Perplexity',
+            'exa': 'Exa',
+            'you': 'You.com',
+            'tavily': 'Tavily',
+            'valyu': 'Valyu'
+        };
+
+        // Load benchmark results
+        async function loadBenchmarkResults() {
+            try {
+                const response = await fetch('/api/benchmark-results');
+                const data = await response.json();
+
+                if (data.success) {
+                    allQueries = data.queries;
+                    filteredQueries = [...allQueries];
+                    updateStats();
+                    renderQueries();
+                    document.getElementById('loadingIndicator').style.display = 'none';
+                } else {
+                    document.getElementById('loadingIndicator').innerHTML =
+                        `<p style="color: var(--accent-red)">Error: ${data.error}</p>`;
+                }
+            } catch (error) {
+                document.getElementById('loadingIndicator').innerHTML =
+                    `<p style="color: var(--accent-red)">Error loading results: ${error.message}</p>`;
+            }
+        }
+
+        // Apply filters
+        function applyFilters() {
+            const searchTerm = document.getElementById('searchBox').value.toLowerCase();
+            const resultsFilter = document.querySelector('input[name="results-filter"]:checked').value;
+
+            filteredQueries = allQueries.filter(query => {
+                // Search filter
+                if (searchTerm && !query.query.toLowerCase().includes(searchTerm)) {
+                    return false;
+                }
+
+                // Results filter
+                const linkupStd = query.apis.linkup_standard;
+                const linkupDeep = query.apis.linkup_deep;
+
+                if (resultsFilter === 'linkup-wins') {
+                    // Show where Linkup has faster response or success where others failed
+                    const competitors = ['perplexity', 'exa', 'you', 'tavily', 'valyu'];
+                    const linkupSucceeded = linkupStd.success || linkupDeep.success;
+                    const someCompetitorFailed = competitors.some(api => !query.apis[api].success);
+                    return linkupSucceeded && someCompetitorFailed;
+                }
+
+                if (resultsFilter === 'linkup-fails') {
+                    // Show where Linkup failed but others succeeded
+                    const linkupFailed = !linkupStd.success && !linkupDeep.success;
+                    const competitors = ['perplexity', 'exa', 'you', 'tavily', 'valyu'];
+                    const someCompetitorSucceeded = competitors.some(api => query.apis[api].success);
+                    return linkupFailed && someCompetitorSucceeded;
+                }
+
+                if (resultsFilter === 'timeouts') {
+                    const hasTimeout = Object.values(query.apis).some(api =>
+                        api.error && api.error.toLowerCase().includes('timeout')
+                    );
+                    return hasTimeout;
+                }
+
+                return true;
+            });
+
+            currentPage = 1;
+            updateStats();
+            renderQueries();
+        }
+
+        // Update stats
+        function updateStats() {
+            const stats = document.querySelectorAll('#statsBox .stat-value');
+            stats[0].textContent = allQueries.length.toLocaleString();
+            stats[1].textContent = filteredQueries.length.toLocaleString();
+            stats[2].textContent = selectedQuery ? `#${selectedQuery.query_num}` : 'None';
+        }
+
+        // Render queries
+        function renderQueries() {
+            const queryList = document.getElementById('queryList');
+            const start = (currentPage - 1) * queriesPerPage;
+            const end = start + queriesPerPage;
+            const pageQueries = filteredQueries.slice(start, end);
+
+            if (pageQueries.length === 0) {
+                queryList.innerHTML = '<div class="no-results">No queries match your filters</div>';
+                return;
+            }
+
+            queryList.innerHTML = pageQueries.map(query => {
+                const successCount = Object.values(query.apis).filter(api => api.success).length;
+                const linkupSuccess = query.apis.linkup_standard.success || query.apis.linkup_deep.success;
+
+                return `
+                    <div class="query-item ${selectedQuery?.query_num === query.query_num ? 'selected' : ''}"
+                         onclick="selectQuery(${query.query_num})">
+                        <div class="query-header">
+                            <span class="query-number">Query #${query.query_num}</span>
+                        </div>
+                        <div class="query-text">${truncateText(query.query, 150)}</div>
+                        <div class="query-stats">
+                            <div class="query-stat">
+                                <span class="query-stat-label">Success Rate:</span>
+                                <span class="query-stat-value">${successCount}/7 APIs</span>
+                            </div>
+                            <div class="query-stat">
+                                <span class="query-stat-label">Linkup:</span>
+                                <span class="query-stat-value ${linkupSuccess ? 'success-badge' : 'failure-badge'}">
+                                    ${linkupSuccess ? '✓ Success' : '✗ Failed'}
+                                </span>
+                            </div>
+                            <div class="query-stat">
+                                <span class="query-stat-label">Length:</span>
+                                <span class="query-stat-value">${query.query_length} chars</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            renderPagination();
+        }
+
+        // Render pagination
+        function renderPagination() {
+            const totalPages = Math.ceil(filteredQueries.length / queriesPerPage);
+            const pagination = document.getElementById('pagination');
+
+            if (totalPages <= 1) {
+                pagination.innerHTML = '';
+                return;
+            }
+
+            pagination.innerHTML = `
+                <button onclick="changePage(-1)" ${currentPage === 1 ? 'disabled' : ''}>← Previous</button>
+                <span>Page ${currentPage} of ${totalPages}</span>
+                <button onclick="changePage(1)" ${currentPage === totalPages ? 'disabled' : ''}>Next →</button>
+            `;
+        }
+
+        // Change page
+        function changePage(direction) {
+            const totalPages = Math.ceil(filteredQueries.length / queriesPerPage);
+            currentPage = Math.max(1, Math.min(totalPages, currentPage + direction));
+            renderQueries();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Select query for comparison
+        function selectQuery(queryNum) {
+            selectedQuery = allQueries.find(q => q.query_num === queryNum);
+            updateStats();
+            renderQueries();
+            renderComparison();
+
+            // Scroll to comparison
+            document.getElementById('comparisonView').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Render comparison view
+        function renderComparison() {
+            const comparisonView = document.getElementById('comparisonView');
+
+            if (!selectedQuery) {
+                comparisonView.innerHTML = '';
+                return;
+            }
+
+            const selectedApis = getSelectedApis();
+            const linkupApis = ['linkup_standard', 'linkup_deep'];
+            const apisToShow = [...linkupApis, ...selectedApis];
+
+            comparisonView.innerHTML = `
+                <div class="comparison-view">
+                    <div class="comparison-header">
+                        <h2>Query #${selectedQuery.query_num} Comparison</h2>
+                        <div class="comparison-query">${selectedQuery.query}</div>
+                    </div>
+                    <div class="api-grid">
+                        ${apisToShow.map(api => renderApiResponse(api)).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render API response
+        function renderApiResponse(apiKey) {
+            const apiData = selectedQuery.apis[apiKey];
+            const isLinkup = apiKey.includes('linkup');
+
+            if (!apiData.success) {
+                return `
+                    <div class="api-response ${isLinkup ? 'linkup' : ''}">
+                        <div class="api-response-header">
+                            <div class="api-name ${isLinkup ? 'linkup-name' : ''}">${API_NAMES[apiKey]}</div>
+                            <div class="api-status">
+                                <span class="status-dot failure"></span>
+                                <span>Failed</span>
+                            </div>
+                        </div>
+                        <div class="api-error">
+                            ${apiData.error || 'Unknown error'}
+                        </div>
+                    </div>
+                `;
+            }
+
+            return `
+                <div class="api-response ${isLinkup ? 'linkup' : ''}">
+                    <div class="api-response-header">
+                        <div class="api-name ${isLinkup ? 'linkup-name' : ''}">${API_NAMES[apiKey]}</div>
+                        <div class="api-status">
+                            <span class="status-dot success"></span>
+                            <span>Success</span>
+                        </div>
+                    </div>
+                    <div class="api-metrics">
+                        <div class="api-metric">
+                            <span class="api-metric-label">Time:</span>
+                            <span class="api-metric-value">${apiData.response_time?.toFixed(2) || 'N/A'}s</span>
+                        </div>
+                        <div class="api-metric">
+                            <span class="api-metric-label">Sources:</span>
+                            <span class="api-metric-value">${apiData.num_sources}</span>
+                        </div>
+                        <div class="api-metric">
+                            <span class="api-metric-label">Length:</span>
+                            <span class="api-metric-value">${apiData.answer.length} chars</span>
+                        </div>
+                    </div>
+                    <div class="api-answer">${apiData.answer || 'No answer provided'}</div>
+                </div>
+            `;
+        }
+
+        // Get selected competitor APIs
+        function getSelectedApis() {
+            const checkboxes = document.querySelectorAll('#apiFilters input[type="checkbox"]:checked');
+            return Array.from(checkboxes).map(cb => cb.value);
+        }
+
+        // Truncate text
+        function truncateText(text, maxLength) {
+            if (text.length <= maxLength) return text;
+            return text.substring(0, maxLength) + '...';
+        }
+
+        // Event listeners
+        document.getElementById('searchBox').addEventListener('input', applyFilters);
+        document.querySelectorAll('input[name="results-filter"]').forEach(radio => {
+            radio.addEventListener('change', applyFilters);
+        });
+        document.querySelectorAll('#apiFilters input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                if (selectedQuery) renderComparison();
+            });
+        });
+
+        // Load data on page load
+        loadBenchmarkResults();
+    </script>
+</body>
+</html>

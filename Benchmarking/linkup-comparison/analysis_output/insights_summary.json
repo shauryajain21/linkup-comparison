@@ -1,0 +1,611 @@
+{
+  "performance_rankings": {
+    "linkup_standard": {
+      "total_queries": 1400,
+      "successes": 1355,
+      "success_rate": 96.79,
+      "timeouts": 45,
+      "avg_response_time": 8.09,
+      "median_response_time": 6.86,
+      "p95_response_time": 17.75,
+      "p99_response_time": 25.66,
+      "avg_answer_length": 1110.0,
+      "avg_sources": 33.7
+    },
+    "linkup_deep": {
+      "total_queries": 1400,
+      "successes": 1064,
+      "success_rate": 76.0,
+      "timeouts": 336,
+      "avg_response_time": 14.73,
+      "median_response_time": 13.94,
+      "p95_response_time": 27.66,
+      "p99_response_time": 29.94,
+      "avg_answer_length": 995.0,
+      "avg_sources": 32.6
+    },
+    "perplexity": {
+      "total_queries": 1400,
+      "successes": 1364,
+      "success_rate": 97.43,
+      "timeouts": 35,
+      "avg_response_time": 7.9,
+      "median_response_time": 5.93,
+      "p95_response_time": 20.46,
+      "p99_response_time": 27.53,
+      "avg_answer_length": 1608.0,
+      "avg_sources": 8.9
+    },
+    "exa": {
+      "total_queries": 1400,
+      "successes": 1371,
+      "success_rate": 97.93,
+      "timeouts": 2,
+      "avg_response_time": 3.02,
+      "median_response_time": 2.69,
+      "p95_response_time": 5.72,
+      "p99_response_time": 7.51,
+      "avg_answer_length": 579.0,
+      "avg_sources": 5.8
+    },
+    "you": {
+      "total_queries": 1400,
+      "successes": 1375,
+      "success_rate": 98.21,
+      "timeouts": 0,
+      "avg_response_time": 1.03,
+      "median_response_time": 0.9,
+      "p95_response_time": 1.37,
+      "p99_response_time": 1.78,
+      "avg_answer_length": 1030.0,
+      "avg_sources": 9.9
+    },
+    "tavily": {
+      "total_queries": 1400,
+      "successes": 604,
+      "success_rate": 43.14,
+      "timeouts": 0,
+      "avg_response_time": 2.69,
+      "median_response_time": 1.82,
+      "p95_response_time": 7.15,
+      "p99_response_time": 18.37,
+      "avg_answer_length": 188.0,
+      "avg_sources": 8.6
+    },
+    "valyu": {
+      "total_queries": 1400,
+      "successes": 1397,
+      "success_rate": 99.79,
+      "timeouts": 3,
+      "avg_response_time": 3.48,
+      "median_response_time": 1.68,
+      "p95_response_time": 12.07,
+      "p99_response_time": 18.22,
+      "avg_answer_length": 888.0,
+      "avg_sources": 6.3
+    }
+  },
+  "speed_vs_quality": {
+    "linkup_standard": {
+      "avg_response_time": 8.09,
+      "avg_answer_length": 1110.0,
+      "avg_sources": 33.7,
+      "chars_per_second": 137.2,
+      "sources_per_second": 4.17
+    },
+    "linkup_deep": {
+      "avg_response_time": 14.73,
+      "avg_answer_length": 995.0,
+      "avg_sources": 32.6,
+      "chars_per_second": 67.6,
+      "sources_per_second": 2.22
+    },
+    "perplexity": {
+      "avg_response_time": 7.9,
+      "avg_answer_length": 1608.0,
+      "avg_sources": 8.9,
+      "chars_per_second": 203.5,
+      "sources_per_second": 1.12
+    },
+    "exa": {
+      "avg_response_time": 3.02,
+      "avg_answer_length": 579.0,
+      "avg_sources": 5.8,
+      "chars_per_second": 191.8,
+      "sources_per_second": 1.92
+    },
+    "you": {
+      "avg_response_time": 1.03,
+      "avg_answer_length": 1030.0,
+      "avg_sources": 9.9,
+      "chars_per_second": 1001.2,
+      "sources_per_second": 9.59
+    },
+    "tavily": {
+      "avg_response_time": 2.69,
+      "avg_answer_length": 188.0,
+      "avg_sources": 8.6,
+      "chars_per_second": 69.7,
+      "sources_per_second": 3.21
+    },
+    "valyu": {
+      "avg_response_time": 3.48,
+      "avg_answer_length": 888.0,
+      "avg_sources": 6.3,
+      "chars_per_second": 255.2,
+      "sources_per_second": 1.81
+    }
+  },
+  "category_analysis": {
+    "Summarization": {
+      "linkup_standard": {
+        "query_count": 47,
+        "success_rate": 100.0
+      },
+      "linkup_deep": {
+        "query_count": 47,
+        "success_rate": 59.6
+      },
+      "perplexity": {
+        "query_count": 47,
+        "success_rate": 97.9
+      },
+      "exa": {
+        "query_count": 47,
+        "success_rate": 100.0
+      },
+      "you": {
+        "query_count": 47,
+        "success_rate": 100.0
+      },
+      "tavily": {
+        "query_count": 47,
+        "success_rate": 2.1
+      },
+      "valyu": {
+        "query_count": 47,
+        "success_rate": 100.0
+      }
+    },
+    "Short Query": {
+      "linkup_standard": {
+        "query_count": 102,
+        "success_rate": 100.0
+      },
+      "linkup_deep": {
+        "query_count": 102,
+        "success_rate": 93.1
+      },
+      "perplexity": {
+        "query_count": 102,
+        "success_rate": 99.0
+      },
+      "exa": {
+        "query_count": 102,
+        "success_rate": 100.0
+      },
+      "you": {
+        "query_count": 102,
+        "success_rate": 100.0
+      },
+      "tavily": {
+        "query_count": 102,
+        "success_rate": 100.0
+      },
+      "valyu": {
+        "query_count": 102,
+        "success_rate": 100.0
+      }
+    },
+    "General Search": {
+      "linkup_standard": {
+        "query_count": 367,
+        "success_rate": 98.4
+      },
+      "linkup_deep": {
+        "query_count": 367,
+        "success_rate": 89.1
+      },
+      "perplexity": {
+        "query_count": 367,
+        "success_rate": 95.6
+      },
+      "exa": {
+        "query_count": 367,
+        "success_rate": 99.5
+      },
+      "you": {
+        "query_count": 367,
+        "success_rate": 99.7
+      },
+      "tavily": {
+        "query_count": 367,
+        "success_rate": 93.7
+      },
+      "valyu": {
+        "query_count": 367,
+        "success_rate": 99.7
+      }
+    },
+    "Company/LinkedIn Research": {
+      "linkup_standard": {
+        "query_count": 562,
+        "success_rate": 98.8
+      },
+      "linkup_deep": {
+        "query_count": 562,
+        "success_rate": 73.5
+      },
+      "perplexity": {
+        "query_count": 562,
+        "success_rate": 98.6
+      },
+      "exa": {
+        "query_count": 562,
+        "success_rate": 96.1
+      },
+      "you": {
+        "query_count": 562,
+        "success_rate": 96.1
+      },
+      "tavily": {
+        "query_count": 562,
+        "success_rate": 24.2
+      },
+      "valyu": {
+        "query_count": 562,
+        "success_rate": 100.0
+      }
+    },
+    "Long/Complex Query": {
+      "linkup_standard": {
+        "query_count": 298,
+        "success_rate": 89.6
+      },
+      "linkup_deep": {
+        "query_count": 298,
+        "success_rate": 61.1
+      },
+      "perplexity": {
+        "query_count": 298,
+        "success_rate": 96.6
+      },
+      "exa": {
+        "query_count": 298,
+        "success_rate": 98.3
+      },
+      "you": {
+        "query_count": 298,
+        "success_rate": 99.3
+      },
+      "tavily": {
+        "query_count": 298,
+        "success_rate": 0.0
+      },
+      "valyu": {
+        "query_count": 298,
+        "success_rate": 99.3
+      }
+    },
+    "Q&A/Informational": {
+      "linkup_standard": {
+        "query_count": 24,
+        "success_rate": 95.8
+      },
+      "linkup_deep": {
+        "query_count": 24,
+        "success_rate": 79.2
+      },
+      "perplexity": {
+        "query_count": 24,
+        "success_rate": 100.0
+      },
+      "exa": {
+        "query_count": 24,
+        "success_rate": 100.0
+      },
+      "you": {
+        "query_count": 24,
+        "success_rate": 100.0
+      },
+      "tavily": {
+        "query_count": 24,
+        "success_rate": 87.5
+      },
+      "valyu": {
+        "query_count": 24,
+        "success_rate": 100.0
+      }
+    }
+  },
+  "failure_analysis": {
+    "linkup_standard": {
+      "total_failures": 45,
+      "timeouts": 45,
+      "other_errors": 0,
+      "timeout_rate": 3.21
+    },
+    "linkup_deep": {
+      "total_failures": 336,
+      "timeouts": 336,
+      "other_errors": 0,
+      "timeout_rate": 24.0
+    },
+    "perplexity": {
+      "total_failures": 36,
+      "timeouts": 35,
+      "other_errors": 1,
+      "timeout_rate": 2.5
+    },
+    "exa": {
+      "total_failures": 29,
+      "timeouts": 2,
+      "other_errors": 27,
+      "timeout_rate": 0.14
+    },
+    "you": {
+      "total_failures": 25,
+      "timeouts": 0,
+      "other_errors": 25,
+      "timeout_rate": 0.0
+    },
+    "tavily": {
+      "total_failures": 796,
+      "timeouts": 0,
+      "other_errors": 796,
+      "timeout_rate": 0.0
+    },
+    "valyu": {
+      "total_failures": 3,
+      "timeouts": 3,
+      "other_errors": 0,
+      "timeout_rate": 0.21
+    }
+  },
+  "source_analysis": {
+    "linkup_standard": {
+      "avg_sources": 33.7,
+      "median_sources": 29,
+      "max_sources": 367,
+      "min_sources": 0,
+      "source_answer_correlation": 0.109
+    },
+    "linkup_deep": {
+      "avg_sources": 32.6,
+      "median_sources": 30,
+      "max_sources": 180,
+      "min_sources": 0,
+      "source_answer_correlation": -0.036
+    },
+    "perplexity": {
+      "avg_sources": 8.9,
+      "median_sources": 9,
+      "max_sources": 20,
+      "min_sources": 0,
+      "source_answer_correlation": 0.339
+    },
+    "exa": {
+      "avg_sources": 5.8,
+      "median_sources": 8,
+      "max_sources": 8,
+      "min_sources": 1,
+      "source_answer_correlation": 0.164
+    },
+    "you": {
+      "avg_sources": 9.9,
+      "median_sources": 10,
+      "max_sources": 10,
+      "min_sources": 0,
+      "source_answer_correlation": 0.297
+    },
+    "tavily": {
+      "avg_sources": 8.6,
+      "median_sources": 10,
+      "max_sources": 10,
+      "min_sources": 0,
+      "source_answer_correlation": 0.322
+    },
+    "valyu": {
+      "avg_sources": 6.3,
+      "median_sources": 10,
+      "max_sources": 10,
+      "min_sources": 0,
+      "source_answer_correlation": 0.941
+    }
+  },
+  "complexity_analysis": {
+    "Very Short (<50)": {
+      "linkup_standard": {
+        "query_count": 113,
+        "success_rate": 100.0,
+        "avg_response_time": 6.46
+      },
+      "linkup_deep": {
+        "query_count": 113,
+        "success_rate": 93.8,
+        "avg_response_time": 12.88
+      },
+      "perplexity": {
+        "query_count": 113,
+        "success_rate": 98.2,
+        "avg_response_time": 10.28
+      },
+      "exa": {
+        "query_count": 113,
+        "success_rate": 100.0,
+        "avg_response_time": 3.05
+      },
+      "you": {
+        "query_count": 113,
+        "success_rate": 100.0,
+        "avg_response_time": 0.83
+      },
+      "tavily": {
+        "query_count": 113,
+        "success_rate": 100.0,
+        "avg_response_time": 1.74
+      },
+      "valyu": {
+        "query_count": 113,
+        "success_rate": 100.0,
+        "avg_response_time": 2.42
+      }
+    },
+    "Short (50-200)": {
+      "linkup_standard": {
+        "query_count": 429,
+        "success_rate": 98.6,
+        "avg_response_time": 7.68
+      },
+      "linkup_deep": {
+        "query_count": 429,
+        "success_rate": 90.2,
+        "avg_response_time": 13.86
+      },
+      "perplexity": {
+        "query_count": 429,
+        "success_rate": 96.5,
+        "avg_response_time": 10.19
+      },
+      "exa": {
+        "query_count": 429,
+        "success_rate": 99.5,
+        "avg_response_time": 3.11
+      },
+      "you": {
+        "query_count": 429,
+        "success_rate": 99.8,
+        "avg_response_time": 0.84
+      },
+      "tavily": {
+        "query_count": 429,
+        "success_rate": 99.8,
+        "avg_response_time": 2.31
+      },
+      "valyu": {
+        "query_count": 429,
+        "success_rate": 99.8,
+        "avg_response_time": 3.59
+      }
+    },
+    "Medium (200-500)": {
+      "linkup_standard": {
+        "query_count": 88,
+        "success_rate": 100.0,
+        "avg_response_time": 8.56
+      },
+      "linkup_deep": {
+        "query_count": 88,
+        "success_rate": 71.6,
+        "avg_response_time": 14.3
+      },
+      "perplexity": {
+        "query_count": 88,
+        "success_rate": 100.0,
+        "avg_response_time": 4.76
+      },
+      "exa": {
+        "query_count": 88,
+        "success_rate": 100.0,
+        "avg_response_time": 2.18
+      },
+      "you": {
+        "query_count": 88,
+        "success_rate": 100.0,
+        "avg_response_time": 0.96
+      },
+      "tavily": {
+        "query_count": 88,
+        "success_rate": 71.6,
+        "avg_response_time": 6.99
+      },
+      "valyu": {
+        "query_count": 88,
+        "success_rate": 100.0,
+        "avg_response_time": 1.7
+      }
+    },
+    "Long (500+)": {
+      "linkup_standard": {
+        "query_count": 770,
+        "success_rate": 94.9,
+        "avg_response_time": 8.52
+      },
+      "linkup_deep": {
+        "query_count": 770,
+        "success_rate": 66.0,
+        "avg_response_time": 15.83
+      },
+      "perplexity": {
+        "query_count": 770,
+        "success_rate": 97.5,
+        "avg_response_time": 6.65
+      },
+      "exa": {
+        "query_count": 770,
+        "success_rate": 96.5,
+        "avg_response_time": 3.05
+      },
+      "you": {
+        "query_count": 770,
+        "success_rate": 96.9,
+        "avg_response_time": 1.17
+      },
+      "tavily": {
+        "query_count": 770,
+        "success_rate": 0.0,
+        "avg_response_time": null
+      },
+      "valyu": {
+        "query_count": 770,
+        "success_rate": 99.7,
+        "avg_response_time": 3.78
+      }
+    }
+  },
+  "competitive_positioning": {
+    "linkup_standard": {
+      "strengths": [
+        "Significantly more sources than Perplexity (33.7 vs 8.9)",
+        "Significantly more sources than Exa (33.7 vs 5.8)",
+        "Significantly more sources than You.com (33.7 vs 9.9)",
+        "Significantly more sources than Tavily (33.7 vs 8.6)",
+        "Significantly more sources than Valyu (33.7 vs 6.3)"
+      ],
+      "weaknesses": [
+        "Lower success rate than Perplexity (96.8% vs 97.4%)",
+        "Lower success rate than Exa (96.8% vs 97.9%)",
+        "Significantly slower than Exa (8.09s vs 3.02s)",
+        "Lower success rate than You.com (96.8% vs 98.2%)",
+        "Significantly slower than You.com (8.09s vs 1.03s)",
+        "Significantly slower than Tavily (8.09s vs 2.69s)",
+        "Lower success rate than Valyu (96.8% vs 99.8%)",
+        "Significantly slower than Valyu (8.09s vs 3.48s)"
+      ],
+      "recommendations": []
+    },
+    "linkup_deep": {
+      "strengths": [
+        "Significantly more sources than Perplexity (32.6 vs 8.9)",
+        "Significantly more sources than Exa (32.6 vs 5.8)",
+        "Significantly more sources than You.com (32.6 vs 9.9)",
+        "Significantly more sources than Tavily (32.6 vs 8.6)",
+        "Significantly more sources than Valyu (32.6 vs 6.3)"
+      ],
+      "weaknesses": [
+        "Lower success rate than Perplexity (76.0% vs 97.4%)",
+        "Significantly slower than Perplexity (14.73s vs 7.90s)",
+        "Lower success rate than Exa (76.0% vs 97.9%)",
+        "Significantly slower than Exa (14.73s vs 3.02s)",
+        "Lower success rate than You.com (76.0% vs 98.2%)",
+        "Significantly slower than You.com (14.73s vs 1.03s)",
+        "Significantly slower than Tavily (14.73s vs 2.69s)",
+        "Lower success rate than Valyu (76.0% vs 99.8%)",
+        "Significantly slower than Valyu (14.73s vs 3.48s)"
+      ],
+      "recommendations": [
+        "CRITICAL: Reduce timeout rate from 336 timeouts (24.0% of queries)"
+      ]
+    }
+  }
+}
