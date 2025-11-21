@@ -696,6 +696,15 @@
 
         // Select query for comparison
         function selectQuery(queryNum) {
+            // If clicking the same query, deselect it
+            if (selectedQuery && selectedQuery.query_num === queryNum) {
+                selectedQuery = null;
+                updateStats();
+                renderQueries();
+                renderComparison();
+                return;
+            }
+
             selectedQuery = allQueries.find(q => q.query_num === queryNum);
             updateStats();
             renderQueries();
