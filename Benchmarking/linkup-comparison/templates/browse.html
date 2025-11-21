@@ -77,18 +77,44 @@
             font-weight: 600;
         }
 
+        .search-container {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
         .search-box {
             width: 100%;
-            padding: 0.75rem;
+            padding: 0.75rem 2.5rem 0.75rem 0.75rem;
             border: 1px solid var(--border-color);
             border-radius: 8px;
             font-size: 0.9rem;
-            margin-bottom: 1.5rem;
         }
 
         .search-box:focus {
             outline: none;
             border-color: var(--accent-blue);
+        }
+
+        .clear-search {
+            position: absolute;
+            right: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0.25rem 0.5rem;
+            display: none;
+        }
+
+        .clear-search:hover {
+            color: var(--text-primary);
+        }
+
+        .search-box:not(:placeholder-shown) ~ .clear-search {
+            display: block;
         }
 
         .filter-section {
@@ -424,10 +450,13 @@
         <div class="sidebar">
             <h2>Filter & Search</h2>
 
-            <input type="text"
-                   class="search-box"
-                   id="searchBox"
-                   placeholder="Search queries...">
+            <div class="search-container">
+                <input type="text"
+                       class="search-box"
+                       id="searchBox"
+                       placeholder="Search queries...">
+                <button class="clear-search" id="clearSearch" onclick="clearSearch()">&times;</button>
+            </div>
 
             <div class="filter-section">
                 <h3>Show Results</h3>
@@ -764,11 +793,45 @@
             return text.substring(0, maxLength) + '...';
         }
 
+        // Clear search
+        function clearSearch() {
+            document.getElementById('searchBox').value = '';
+            applyFilters();
+        }
+
+        // Debounce function for search
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
         // Event listeners
-        document.getElementById('searchBox').addEventListener('input', applyFilters);
+        const debouncedSearch = debounce(applyFilters, 300);
+        const searchBox = document.getElementById('searchBox');
+
+        searchBox.addEventListener('input', () => {
+            const clearBtn = document.getElementById('clearSearch');
+            clearBtn.style.display = searchBox.value ? 'block' : 'none';
+            debouncedSearch();
+        });
+
+        searchBox.addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') {
+                applyFilters();
+            }
+        });
+
         document.querySelectorAll('input[name="results-filter"]').forEach(radio => {
             radio.addEventListener('change', applyFilters);
         });
+
         document.querySelectorAll('#apiFilters input[type="checkbox"]').forEach(checkbox => {
             checkbox.addEventListener('change', () => {
                 if (selectedQuery) renderComparison();
