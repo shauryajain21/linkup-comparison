@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "query": "What is the current price of Bitcoin?",
+    "category": "real-time",
+    "description": "Real-time financial data",
+    "difficulty": "easy",
+    "expected_apis": ["linkup_standard"]
+  },
+  {
+    "id": 2,
+    "query": "Who won the latest NBA championship?",
+    "category": "factual",
+    "description": "Recent sports event",
+    "difficulty": "easy",
+    "expected_apis": ["linkup_standard"]
+  },
+  {
+    "id": 3,
+    "query": "What are the main differences between React and Vue.js in 2024?",
+    "category": "comparative",
+    "description": "Technology comparison",
+    "difficulty": "medium",
+    "expected_apis": ["linkup_deep"]
+  },
+  {
+    "id": 4,
+    "query": "Explain the latest Federal Reserve interest rate decision and its economic implications",
+    "category": "complex-reasoning",
+    "description": "Economic analysis requiring context",
+    "difficulty": "hard",
+    "expected_apis": ["linkup_deep"]
+  },
+  {
+    "id": 5,
+    "query": "What is the weather in New York City right now?",
+    "category": "real-time",
+    "description": "Current weather data",
+    "difficulty": "easy",
+    "expected_apis": ["linkup_standard"]
+  },
+  {
+    "id": 6,
+    "query": "Compare the performance of NVIDIA vs AMD GPUs for AI workloads in 2024",
+    "category": "comparative",
+    "description": "Detailed technical comparison",
+    "difficulty": "hard",
+    "expected_apis": ["linkup_deep"]
+  },
+  {
+    "id": 7,
+    "query": "What are the top trending topics on Twitter today?",
+    "category": "real-time",
+    "description": "Social media trends",
+    "difficulty": "easy",
+    "expected_apis": ["linkup_standard"]
+  },
+  {
+    "id": 8,
+    "query": "Analyze the potential impact of AI on the job market over the next 5 years",
+    "category": "complex-reasoning",
+    "description": "Long-form analysis with predictions",
+    "difficulty": "hard",
+    "expected_apis": ["linkup_deep"]
+  },
+  {
+    "id": 9,
+    "query": "What is the capital of France?",
+    "category": "factual",
+    "description": "Simple factual query",
+    "difficulty": "easy",
+    "expected_apis": ["linkup_standard"]
+  },
+  {
+    "id": 10,
+    "query": "What are the best practices for implementing OAuth 2.0 authentication?",
+    "category": "technical",
+    "description": "Technical implementation guide",
+    "difficulty": "medium",
+    "expected_apis": ["linkup_deep"]
+  },
+  {
+    "id": 11,
+    "query": "Latest news about SpaceX Starship launches",
+    "category": "real-time",
+    "description": "Recent news query",
+    "difficulty": "easy",
+    "expected_apis": ["linkup_standard"]
+  },
+  {
+    "id": 12,
+    "query": "How do different countries' approaches to climate policy compare?",
+    "category": "comparative",
+    "description": "Multi-country policy comparison",
+    "difficulty": "hard",
+    "expected_apis": ["linkup_deep"]
+  },
+  {
+    "id": 13,
+    "query": "What is the current S&P 500 index value?",
+    "category": "real-time",
+    "description": "Real-time market data",
+    "difficulty": "easy",
+    "expected_apis": ["linkup_standard"]
+  },
+  {
+    "id": 14,
+    "query": "Explain quantum computing and its potential applications in cryptography",
+    "category": "complex-reasoning",
+    "description": "Technical explanation with implications",
+    "difficulty": "hard",
+    "expected_apis": ["linkup_deep"]
+  },
+  {
+    "id": 15,
+    "query": "What are the ingredients in a classic Margherita pizza?",
+    "category": "factual",
+    "description": "Simple factual query",
+    "difficulty": "easy",
+    "expected_apis": ["linkup_standard"]
+  },
+  {
+    "id": 16,
+    "query": "Compare the healthcare systems of the US, UK, and Canada",
+    "category": "comparative",
+    "description": "Complex multi-dimensional comparison",
+    "difficulty": "hard",
+    "expected_apis": ["linkup_deep"]
+  },
+  {
+    "id": 17,
+    "query": "What movies are currently in theaters?",
+    "category": "real-time",
+    "description": "Current entertainment listings",
+    "difficulty": "easy",
+    "expected_apis": ["linkup_standard"]
+  },
+  {
+    "id": 18,
+    "query": "Analyze the pros and cons of remote work vs office work for software engineers",
+    "category": "complex-reasoning",
+    "description": "Multi-faceted analysis",
+    "difficulty": "medium",
+    "expected_apis": ["linkup_deep"]
+  },
+  {
+    "id": 19,
+    "query": "What is Python used for?",
+    "category": "factual",
+    "description": "General knowledge query",
+    "difficulty": "easy",
+    "expected_apis": ["linkup_standard"]
+  },
+  {
+    "id": 20,
+    "query": "How do neural networks learn and what are the different types of learning paradigms?",
+    "category": "technical",
+    "description": "Technical deep-dive explanation",
+    "difficulty": "hard",
+    "expected_apis": ["linkup_deep"]
+  }
+]
