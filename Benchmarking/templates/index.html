@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Linkup API Comparison - Benchmark Results</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 1200px; margin: 50px auto; padding: 20px; }
+        h1 { color: #333; }
+        .info { background: #f5f5f5; padding: 20px; border-radius: 5px; margin: 20px 0; }
+        a { color: #0066cc; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .download-btn { display: inline-block; padding: 10px 20px; background: #0066cc; color: white; border-radius: 5px; margin: 10px 5px; }
+    </style>
+</head>
+<body>
+    <h1>Linkup API Comparison - Benchmark Results</h1>
+    
+    <div class="info">
+        <h2>About This Benchmark</h2>
+        <p>Comprehensive comparison of 7 search APIs across 1,400 queries.</p>
+        <ul>
+            <li><strong>APIs Tested:</strong> Linkup Standard, Linkup Deep, Perplexity, Exa, You.com, Tavily, Valyu</li>
+            <li><strong>Total Queries:</strong> 1,400</li>
+            <li><strong>Metrics:</strong> Success rate, response time, source count, answer quality</li>
+        </ul>
+    </div>
+
+    <div class="info">
+        <h2>Key Findings</h2>
+        <ul>
+            <li><strong>Linkup Standard:</strong> 96.8% success rate, 33.7 avg sources (3-6x more than competitors)</li>
+            <li><strong>You.com:</strong> 98.2% success rate, fastest at 1.03s average</li>
+            <li><strong>Exa:</strong> 97.9% success rate, 3.02s average</li>
+            <li><strong>Perplexity:</strong> 97.4% success rate, best answer length (1608 chars)</li>
+            <li><strong>Valyu:</strong> 64.9% actual success rate (35% "No results found")</li>
+        </ul>
+    </div>
+
+    <div class="info">
+        <h2>Download Results</h2>
+        <a href="/master_results_all_batches.csv" class="download-btn">Download Master CSV (16MB)</a>
+        <p><em>Note: The CSV contains all 1,400 queries with responses from all 7 APIs</em></p>
+    </div>
+
+    <div class="info">
+        <h2>Analysis Reports</h2>
+        <ul>
+            <li><a href="https://github.com/shauryajain21/linkup-comparison">View on GitHub</a></li>
+            <li>Corrected Performance Analysis</li>
+            <li>Strategic Opportunities for Linkup</li>
+            <li>Win Rate Methodology</li>
+            <li>Valyu Recovery Report</li>
+        </ul>
+    </div>
+</body>
+</html>
