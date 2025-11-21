@@ -1,5 +1,5 @@
 """Flask web application for API comparison interface."""
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify, request, send_file
 from executor import QueryExecutor
 from database import QueryDatabase, ResultsDatabase
 from config import Config
@@ -16,6 +16,17 @@ results_db = ResultsDatabase()
 def index():
     """Render main comparison interface."""
     return render_template('index.html')
+
+
+@app.route('/master_results_all_batches.csv')
+def download_csv():
+    """Serve the master results CSV file."""
+    import os
+    csv_path = 'master_results_all_batches.csv'
+    if os.path.exists(csv_path):
+        return send_file(csv_path, mimetype='text/csv', as_attachment=True, download_name='master_results_all_batches.csv')
+    else:
+        return "CSV file not found", 404
 
 
 @app.route('/api/queries')
